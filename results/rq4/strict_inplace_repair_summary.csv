@@ -1,0 +1,4 @@
+stage,evaluated,passed_or_recovered,failed_or_unresolved,rate_percent
+Stage 1,450,301,149,66.89
+Stage 2 additional,149,6,143,4.03
+Final cumulative,450,307,143,68.22

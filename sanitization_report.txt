@@ -1,0 +1,8 @@
+Public Package Sanitization Report
+Date: 2026-09-01
+Windows user paths: 0
+Forward-style user paths: 0
+Linux home paths: 0
+OpenAI API-key patterns: 0
+Anthropic API-key patterns: 0
+Status: PASS

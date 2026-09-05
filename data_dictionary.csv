@@ -1,0 +1,53 @@
+dataset,column,dtype,non_null_count,description
+rq1_rq2_protocol_aligned_corpus_2783.csv,record_id,object,2783,Unique generated-test record identifier.
+rq1_rq2_protocol_aligned_corpus_2783.csv,project,object,2783,Target web application.
+rq1_rq2_protocol_aligned_corpus_2783.csv,workflow_id,object,2783,Predefined workflow identifier.
+rq1_rq2_protocol_aligned_corpus_2783.csv,model_provider,object,2783,LLM family/provider used to generate the test.
+rq1_rq2_protocol_aligned_corpus_2783.csv,prompt_type,object,2783,Prompt-generation strategy.
+rq1_rq2_protocol_aligned_corpus_2783.csv,variant,object,2783,Generation variant.
+rq1_rq2_protocol_aligned_corpus_2783.csv,generated_test_code_path,object,2755,Sanitized path reference for generated test source.
+rq1_rq2_protocol_aligned_corpus_2783.csv,generated_code_text,object,2755,Generated Java integration-test source code.
+rq1_rq2_protocol_aligned_corpus_2783.csv,code_char_length,int64,2783,Character count of generated source code.
+rq1_rq2_protocol_aligned_corpus_2783.csv,code_line_count,int64,2783,Line count of generated source code.
+rq1_rq2_protocol_aligned_corpus_2783.csv,assertion_count,int64,2783,Number of detected assertions.
+rq1_rq2_protocol_aligned_corpus_2783.csv,ui_open_count,int64,2783,Number of UI/browser open operations.
+rq1_rq2_protocol_aligned_corpus_2783.csv,click_count,int64,2783,Number of click operations.
+rq1_rq2_protocol_aligned_corpus_2783.csv,setvalue_count,int64,2783,Number of setValue operations.
+rq1_rq2_protocol_aligned_corpus_2783.csv,sendkeys_count,int64,2783,Number of sendKeys operations.
+rq1_rq2_protocol_aligned_corpus_2783.csv,selector_id_count,int64,2783,Number of ID-based selectors.
+rq1_rq2_protocol_aligned_corpus_2783.csv,selector_xpath_count,int64,2783,Number of XPath selectors.
+rq1_rq2_protocol_aligned_corpus_2783.csv,selector_css_count,int64,2783,Number of CSS selectors.
+rq1_rq2_protocol_aligned_corpus_2783.csv,text_assertion_count,int64,2783,Number of text assertions.
+rq1_rq2_protocol_aligned_corpus_2783.csv,selenide_usage_count,int64,2783,Number of Selenide-related occurrences.
+rq1_rq2_protocol_aligned_corpus_2783.csv,selenium_usage_count,int64,2783,Number of Selenium-related occurrences.
+rq1_rq2_protocol_aligned_corpus_2783.csv,junit_usage_count,int64,2783,Number of JUnit-related occurrences.
+rq1_rq2_protocol_aligned_corpus_2783.csv,original_final_label,object,2783,Execution-derived outcome/failure label.
+rq1_rq2_protocol_aligned_corpus_2783.csv,binary_label,int64,2783,"Binary execution-quality label: 0=Failure, 1=Success."
+rq1_rq2_protocol_aligned_corpus_2783.csv,binary_label_name,object,2783,Human-readable binary execution-quality label.
+rq1_rq2_protocol_aligned_corpus_2783.csv,failure_taxonomy_label,object,2480,Failure category used in failure-diagnosis modeling.
+rq3_failure_diagnosis_final_2352.csv,record_id,object,2352,Unique generated-test record identifier.
+rq3_failure_diagnosis_final_2352.csv,project,object,2352,Target web application.
+rq3_failure_diagnosis_final_2352.csv,workflow_id,object,2352,Predefined workflow identifier.
+rq3_failure_diagnosis_final_2352.csv,model_provider,object,2352,LLM family/provider used to generate the test.
+rq3_failure_diagnosis_final_2352.csv,prompt_type,object,2352,Prompt-generation strategy.
+rq3_failure_diagnosis_final_2352.csv,variant,int64,2352,Generation variant.
+rq3_failure_diagnosis_final_2352.csv,generated_test_code_path,object,2352,Sanitized path reference for generated test source.
+rq3_failure_diagnosis_final_2352.csv,generated_code_text,object,2352,Generated Java integration-test source code.
+rq3_failure_diagnosis_final_2352.csv,code_char_length,int64,2352,Character count of generated source code.
+rq3_failure_diagnosis_final_2352.csv,code_line_count,int64,2352,Line count of generated source code.
+rq3_failure_diagnosis_final_2352.csv,assertion_count,int64,2352,Number of detected assertions.
+rq3_failure_diagnosis_final_2352.csv,ui_open_count,int64,2352,Number of UI/browser open operations.
+rq3_failure_diagnosis_final_2352.csv,click_count,int64,2352,Number of click operations.
+rq3_failure_diagnosis_final_2352.csv,setvalue_count,int64,2352,Number of setValue operations.
+rq3_failure_diagnosis_final_2352.csv,sendkeys_count,int64,2352,Number of sendKeys operations.
+rq3_failure_diagnosis_final_2352.csv,selector_id_count,int64,2352,Number of ID-based selectors.
+rq3_failure_diagnosis_final_2352.csv,selector_xpath_count,int64,2352,Number of XPath selectors.
+rq3_failure_diagnosis_final_2352.csv,selector_css_count,int64,2352,Number of CSS selectors.
+rq3_failure_diagnosis_final_2352.csv,text_assertion_count,int64,2352,Number of text assertions.
+rq3_failure_diagnosis_final_2352.csv,selenide_usage_count,int64,2352,Number of Selenide-related occurrences.
+rq3_failure_diagnosis_final_2352.csv,selenium_usage_count,int64,2352,Number of Selenium-related occurrences.
+rq3_failure_diagnosis_final_2352.csv,junit_usage_count,int64,2352,Number of JUnit-related occurrences.
+rq3_failure_diagnosis_final_2352.csv,original_final_label,object,2352,Execution-derived outcome/failure label.
+rq3_failure_diagnosis_final_2352.csv,binary_label,int64,2352,"Binary execution-quality label: 0=Failure, 1=Success."
+rq3_failure_diagnosis_final_2352.csv,binary_label_name,object,2352,Human-readable binary execution-quality label.
+rq3_failure_diagnosis_final_2352.csv,failure_taxonomy_label,object,2352,Failure category used in failure-diagnosis modeling.

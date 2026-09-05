@@ -1,0 +1,5 @@
+exclusion_reason,count
+Outside final P1-P3 / V1-V3 analytical protocol,82
+Non-primary or ambiguous failure category,80
+Post-repair duplicate excluded from pre-repair diagnosis,44
+Missing source code / unusable all-zero feature vector,4

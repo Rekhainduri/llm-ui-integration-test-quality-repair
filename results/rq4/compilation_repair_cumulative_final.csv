@@ -1,0 +1,6 @@
+project,total_compilation_failures,compile_recovered,unresolved,skipped,recovery_rate_percent
+JPetStore 6,320,141,179,0,44.06
+BookStore,175,112,63,0,64.0
+Spring PetClinic,94,17,77,0,18.09
+HelpDeskApp,213,108,101,4,50.7
+TOTAL,802,378,420,4,47.13
