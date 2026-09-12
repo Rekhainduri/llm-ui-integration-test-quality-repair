@@ -10,3 +10,22 @@ Thumbs.db
 .env
 venv/
 .venv/
+# Private/full research datasets
+rq1_rq2_protocol_aligned_corpus_2783.csv
+rq1_rq2_protocol_aligned_corpus_2777.csv
+rq1_rq2_protocol_aligned_corpus_2777_FINAL.csv
+rq3_failure_diagnosis_final_2352.csv
+audit/historical_aggregate_3069.csv
+audit/rq1_rq2_excluded_out_of_protocol_286.csv
+audit/rq3_excluded_records_210.csv
+audit/original_pre_repair_six/
+audit/rq1_rq2_protocol_aligned_corpus_2783_before_correction.csv
+audit/rq1_rq2_removed_p4_repair_prompt_6.csv
+audit/rq1_rq2_restored_pre_repair_labels_6.csv
+
+# Record-level prediction and repair outputs
+results/rq2/*_oof_predictions.csv
+results/rq3/*_best_model_oof.csv
+results/rq4/objective1_*_results.csv
+results/rq4/strict_inplace_repair_final_450.csv
+results/rq2_2777/
