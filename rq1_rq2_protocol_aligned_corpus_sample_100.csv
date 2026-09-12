@@ -1,0 +1,4424 @@
+record_id,project,workflow_id,model_provider,prompt_type,variant,generated_test_code_path,generated_code_text,code_char_length,code_line_count,assertion_count,ui_open_count,click_count,setvalue_count,sendkeys_count,selector_id_count,selector_xpath_count,selector_css_count,text_assertion_count,selenide_usage_count,selenium_usage_count,junit_usage_count,original_final_label,binary_label,binary_label_name,failure_taxonomy_label
+JPetStore6_JPS-WF01_P3_OpenAI_V03,JPetStore 6,JPS-WF01,OpenAI,P3,3,<USER_HOME>/Desktop/Research1/generated_tests/JPetStore6/JPS-WF01/P3/OpenAI/JPS_WF01_P3_OpenAI_V3_IT.java,"package org.mybatis.jpetstore;
+
+import static com.codeborne.selenide.Condition.empty;
+import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.Selenide.title;
+import static com.codeborne.selenide.Selenide.webdriver;
+import static org.assertj.core.api.Assertions.assertThat;
+
+import java.util.concurrent.TimeUnit;
+
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
+import org.openqa.selenium.By;
+
+import com.codeborne.selenide.Configuration;
+
+public class JPS_WF01_P3_OpenAI_V3_IT {
+
+  @BeforeAll
+  static void setup() {
+    Configuration.browser = ""chrome"";
+    Configuration.headless = true;
+    Configuration.timeout = TimeUnit.SECONDS.toMillis(10);
+    Configuration.baseUrl = ""htt<LOCAL_PATH>"";
+  }
+
+  @Test
+  void welcomeToMainCatalog() {
+    open(""/"");
+
+    assertThat(title()).isEqualTo(""JPetStore Demo"");
+    $(By.cssSelector(""#Content h2"")).shouldBe(text(""Welcome to JPetStore 6""));
+
+    $(By.linkText(""Enter the Store"")).click();
+
+    assertThat(webdriver().driver().url()).contains(""/actions/Catalog.action"");
+    $(By.id(""WelcomeContent"")).shouldBe(empty);
+
+    $(By.cssSelector(""#SidebarContent a:nth-of-type(1)"")).click();
+    $(By.cssSelector(""#Catalog h2"")).shouldBe(text(""Fish""));
+
+    $(By.linkText(""Return to Main Menu"")).click();
+
+    $(By.cssSelector(""#SidebarContent a:nth-of-type(2)"")).click();
+    $(By.cssSelector(""#Catalog h2"")).shouldBe(text(""Dogs""));
+
+    $(By.linkText(""Return to Main Menu"")).click();
+
+    $(By.cssSelector(""#SidebarContent a:nth-of-type(3)"")).click();
+    $(By.cssSelector(""#Catalog h2"")).shouldBe(text(""Cats""));
+
+    $(By.linkText(""Return to Main Menu"")).click();
+
+    $(By.cssSelector(""#SidebarContent a:nth-of-type(4)"")).click();
+    $(By.cssSelector(""#Catalog h2"")).shouldBe(text(""Reptiles""));
+
+    $(By.linkText(""Return to Main Menu"")).click();
+
+    $(By.cssSelector(""#SidebarContent a:nth-of-type(5)"")).click();
+    $(By.cssSelector(""#Catalog h2"")).shouldBe(text(""Birds""));
+  }
+}",2107,64,13,1,10,0,0,12,0,28,12,35,19,6,Passed,1,Success,
+JPetStore6_JPS-WF02_P3_OpenAI_V01,JPetStore 6,JPS-WF02,OpenAI,P3,1,<USER_HOME>/Desktop/Research1/generated_tests/JPetStore6/JPS-WF02/P3/OpenAI/JPS_WF02_P3_OpenAI_V1_IT.java,"package org.mybatis.jpetstore;
+
+import static com.codeborne.selenide.Condition.empty;
+import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.open;
+
+import java.util.concurrent.TimeUnit;
+
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
+import org.openqa.selenium.By;
+
+import com.codeborne.selenide.Configuration;
+
+import static org.assertj.core.api.Assertions.assertThat;
+
+public class JPS_WF02_P3_OpenAI_V1_IT {
+
+    @BeforeAll
+    static void setUp() {
+        Configuration.browser = ""chrome"";
+        Configuration.headless = true;
+        Configuration.timeout = TimeUnit.SECONDS.toMillis(10);
+        Configuration.baseUrl = ""htt<LOCAL_PATH>"";
+    }
+
+    @Test
+    void shouldDisplayAllFishProductsInFishCategory() {
+        open(""/"");
+
+        assertThat(com.codeborne.selenide.Selenide.title()).isEqualTo(""JPetStore Demo"");
+        $(By.cssSelector(""#Content h2"")).shouldBe(text(""Welcome to JPetStore 6""));
+
+        $(By.linkText(""Enter the Store"")).click();
+
+        $(By.id(""WelcomeContent"")).shouldBe(empty);
+
+        $(By.cssSelector(""#SidebarContent a:nth-of-type(1)"")).click();
+
+        $(By.cssSelector(""#Catalog h2"")).shouldBe(text(""Fish""));
+
+        $(By.linkText(""FI-SW-01"")).shouldBe(text(""FI-SW-01""));
+        $(By.linkText(""FI-SW-02"")).shouldBe(text(""FI-SW-02""));
+        $(By.linkText(""FI-FW-01"")).shouldBe(text(""FI-FW-01""));
+        $(By.linkText(""FI-FW-02"")).shouldBe(text(""FI-FW-02""));
+
+        $(By.cssSelector(""#Catalog"")).shouldBe(text(""Angelfish""));
+        $(By.cssSelector(""#Catalog"")).shouldBe(text(""Tiger Shark""));
+        $(By.cssSelector(""#Catalog"")).shouldBe(text(""Koi""));
+        $(By.cssSelector(""#Catalog"")).shouldBe(text(""Goldfish""));
+    }
+}",1817,53,15,1,2,0,0,8,0,20,15,33,13,5,Correct Integration Workflow Test,1,Success,
+JPetStore6_JPS-WF03_P3_OpenAI_V01,JPetStore 6,JPS-WF03,OpenAI,P3,1,<USER_HOME>/Desktop/Research1/generated_tests/JPetStore6/JPS-WF03/P3/OpenAI/JPS_WF03_P3_OpenAI_V1_IT.java,"package org.mybatis.jpetstore;
+
+import static com.codeborne.selenide.Condition.empty;
+import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.Selenide.title;
+import static org.assertj.core.api.Assertions.assertThat;
+
+import java.util.concurrent.TimeUnit;
+
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
+import org.openqa.selenium.By;
+
+import com.codeborne.selenide.Configuration;
+
+public class JPS_WF03_P3_OpenAI_V1_IT {
+
+  @BeforeAll
+  static void setUp() {
+    Configuration.browser = ""chrome"";
+    Configuration.headless = true;
+    Configuration.timeout = TimeUnit.SECONDS.toMillis(10);
+    Configuration.baseUrl = ""htt<LOCAL_PATH>"";
+  }
+
+  @Test
+  void dogsCategoryProductListingWorkflow() {
+    open(""/"");
+
+    assertThat(title()).isEqualTo(""JPetStore Demo"");
+    $(By.cssSelector(""#Content h2"")).shouldBe(text(""Welcome to JPetStore 6""));
+
+    $(By.linkText(""Enter the Store"")).click();
+
+    $(By.id(""WelcomeContent"")).shouldBe(empty);
+
+    $(By.cssSelector(""#SidebarContent a:nth-of-type(2)"")).click();
+
+    $(By.cssSelector(""#Catalog h2"")).shouldBe(text(""Dogs""));
+    $(By.cssSelector(""#Catalog"")).shouldBe(text(""Bulldog""));
+    $(By.cssSelector(""#Catalog"")).shouldBe(text(""Poodle""));
+    $(By.cssSelector(""#Catalog"")).shouldBe(text(""Dalmation""));
+    $(By.cssSelector(""#Catalog"")).shouldBe(text(""Golden Retriever""));
+    $(By.cssSelector(""#Catalog"")).shouldBe(text(""Labrador Retriever""));
+    $(By.cssSelector(""#Catalog"")).shouldBe(text(""Chihuahua""));
+  }
+}",1645,49,13,1,2,0,0,10,0,20,9,29,11,5,Corrected Success,1,Success,
+JPetStore6_JPS-WF04_P3_OpenAI_V01,JPetStore 6,JPS-WF04,OpenAI,P3,1,<USER_HOME>/Desktop/Research1/generated_tests/JPetStore6/JPS-WF04/P3/OpenAI/JPS_WF04_P3_OpenAI_V1_IT.java,"package org.mybatis.jpetstore;
+
+import static com.codeborne.selenide.CollectionCondition.sizeGreaterThanOrEqual;
+import static com.codeborne.selenide.Condition.empty;
+import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.open;
+
+import java.util.concurrent.TimeUnit;
+
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
+import org.openqa.selenium.By;
+
+import com.codeborne.selenide.Configuration;
+
+import static org.assertj.core.api.Assertions.assertThat;
+
+class JPS_WF04_P3_OpenAI_V1_IT {
+
+    @BeforeAll
+    static void setUp() {
+        Configuration.browser = ""CHROME"";
+        Configuration.headless = true;
+        Configuration.timeout = TimeUnit.SECONDS.toMillis(10);
+        Configuration.baseUrl = ""htt<LOCAL_PATH>"";
+    }
+
+    @Test
+    void catsCategoryProductListingWorkflow() {
+        open(""/"");
+
+        assertThat(com.codeborne.selenide.Selenide.title()).isEqualTo(""JPetStore Demo"");
+        $(By.cssSelector(""#Content h2"")).shouldBe(text(""Welcome to JPetStore 6""));
+
+        $(By.linkText(""Enter the Store"")).click();
+
+        $(By.id(""WelcomeContent"")).shouldBe(empty);
+
+        $(By.cssSelector(""#SidebarContent a:nth-of-type(3)"")).click();
+
+        $(By.cssSelector(""#Catalog h2"")).shouldBe(text(""Cats""));
+        $(By.cssSelector(""#Catalog"")).shouldBe(text(""Manx""));
+        $(By.cssSelector(""#Catalog"")).shouldBe(text(""Persian""));
+    }
+}",1493,46,9,1,2,0,0,6,0,12,5,22,7,5,Correct Integration Workflow Test,1,Success,
+JPetStore6_JPS-WF05_P3_OpenAI_V01,JPetStore 6,JPS-WF05,OpenAI,P3,1,<USER_HOME>/Desktop/Research1/generated_tests/JPetStore6/JPS-WF05/P3/OpenAI/JPS_WF05_P3_OpenAI_V1_IT.java,"package org.mybatis.jpetstore;
+
+import static com.codeborne.selenide.Condition.empty;
+import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.Selenide.title;
+import static org.assertj.core.api.Assertions.assertThat;
+
+import java.util.concurrent.TimeUnit;
+
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
+import org.openqa.selenium.By;
+
+import com.codeborne.selenide.Configuration;
+
+class JPS_WF05_P3_OpenAI_V1_IT {
+
+    @BeforeAll
+    static void setUp() {
+        Configuration.browser = ""chrome"";
+        Configuration.headless = true;
+        Configuration.timeout = TimeUnit.SECONDS.toMillis(10);
+        Configuration.baseUrl = ""htt<LOCAL_PATH>"";
+    }
+
+    @Test
+    void birdsCategoryProductListingWorkflow() {
+        open(""/"");
+
+        assertThat(title()).isEqualTo(""JPetStore Demo"");
+        $(By.cssSelector(""#Content h2"")).shouldBe(text(""Welcome to JPetStore 6""));
+
+        $(By.linkText(""Enter the Store"")).click();
+        $(By.id(""WelcomeContent"")).shouldBe(empty);
+
+        $(By.cssSelector(""#SidebarContent a:nth-of-type(5)"")).click();
+        $(By.cssSelector(""#Catalog h2"")).shouldBe(text(""Birds""));
+        $(By.cssSelector(""#Catalog"")).shouldBe(text(""Amazon Parrot""));
+        $(By.cssSelector(""#Catalog"")).shouldBe(text(""Finch""));
+    }
+}",1439,43,9,1,2,0,0,6,0,12,5,21,7,5,Corrected Success,1,Success,
+JPetStore6_JPS-WF06_P3_OpenAI_V01,JPetStore 6,JPS-WF06,OpenAI,P3,1,<USER_HOME>/Desktop/Research1/generated_tests/JPetStore6/JPS-WF06/P3/OpenAI/JPS_WF06_P3_OpenAI_V1_IT.java,"package org.mybatis.jpetstore;
+
+import com.codeborne.selenide.Configuration;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
+import org.openqa.selenium.By;
+
+import java.util.concurrent.TimeUnit;
+
+import static com.codeborne.selenide.Condition.empty;
+import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.Selenide.title;
+import static org.assertj.core.api.Assertions.assertThat;
+
+public class JPS_WF06_P3_OpenAI_V1_IT {
+
+  @BeforeAll
+  static void setUp() {
+    Configuration.browser = ""chrome"";
+    Configuration.headless = true;
+    Configuration.timeout = TimeUnit.SECONDS.toMillis(10);
+    Configuration.baseUrl = ""htt<LOCAL_PATH>"";
+  }
+
+  @Test
+  void reptilesCategoryProductListingWorkflow() {
+    open(""/"");
+
+    assertThat(title()).isEqualTo(""JPetStore Demo"");
+    $(By.cssSelector(""#Content h2"")).shouldBe(text(""Welcome to JPetStore 6""));
+
+    $(By.linkText(""Enter the Store"")).click();
+    $(By.id(""WelcomeContent"")).shouldBe(empty);
+
+    $(By.cssSelector(""#SidebarContent a:nth-of-type(4)"")).click();
+
+    $(By.cssSelector(""#Catalog h2"")).shouldBe(text(""Reptiles""));
+    $(By.cssSelector(""#Catalog"")).shouldBe(text(""Rattlesnake""));
+    $(By.cssSelector(""#Catalog"")).shouldBe(text(""Iguana""));
+  }
+}",1387,43,9,1,2,0,0,6,0,12,5,21,7,5,Correct Integration Workflow Test,1,Success,
+JPetStore6_JPS-WF07_P3_OpenAI_V01,JPetStore 6,JPS-WF07,OpenAI,P3,1,<USER_HOME>/Desktop/Research1/generated_tests/JPetStore6/JPS-WF07/P3/OpenAI/JPS_WF07_P3_OpenAI_V1_IT.java,"package org.mybatis.jpetstore;
+
+import static com.codeborne.selenide.Configuration.baseUrl;
+import static com.codeborne.selenide.Configuration.browser;
+import static com.codeborne.selenide.Configuration.headless;
+import static com.codeborne.selenide.Configuration.timeout;
+import static com.codeborne.selenide.Condition.empty;
+import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.Selenide.title;
+import static org.assertj.core.api.Assertions.assertThat;
+
+import java.util.concurrent.TimeUnit;
+
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
+import org.openqa.selenium.By;
+
+public class JPS_WF07_P3_OpenAI_V1_IT {
+
+    @BeforeAll
+    static void setUp() {
+        browser = ""chrome"";
+        headless = true;
+        timeout = TimeUnit.SECONDS.toMillis(10);
+        baseUrl = ""htt<LOCAL_PATH>"";
+    }
+
+    @Test
+    void fishProductDetailNavigationWorkflow() {
+        open(""/"");
+
+        assertThat(title()).isEqualTo(""JPetStore Demo"");
+        $(By.cssSelector(""#Content h2"")).shouldBe(text(""Welcome to JPetStore 6""));
+
+        $(By.linkText(""Enter the Store"")).click();
+        $(By.id(""WelcomeContent"")).shouldBe(empty);
+
+        // Open Fish category from sidebar
+        $(By.cssSelector(""#SidebarContent a:nth-of-type(1)"")).click();
+        $(By.cssSelector(""#Catalog h2"")).shouldBe(text(""Fish""));
+
+        // Open Angelfish product
+        $(By.linkText(""FI-SW-01"")).click();
+        $(By.cssSelector(""#Catalog h2"")).shouldBe(text(""Angelfish""));
+
+        // Verify Angelfish item list
+        $(By.cssSelector(""#Catalog"")).shouldBe(text(""Large Angelfish""));
+        $(By.cssSelector(""#Catalog"")).shouldBe(text(""Small Angelfish""));
+
+        // Open Large Angelfish item detail
+        $(By.linkText(""EST-1"")).click();
+        $(By.cssSelector(""#Catalog"")).shouldBe(text(""Large Angelfish""));
+    }
+}",1986,56,11,1,4,0,0,8,0,18,9,30,11,5,Corrected Success,1,Success,
+JPetStore6_JPS-WF08_P3_OpenAI_V01,JPetStore 6,JPS-WF08,OpenAI,P3,1,<USER_HOME>/Desktop/Research1/generated_tests/JPetStore6/JPS-WF08/P3/OpenAI/JPS_WF08_P3_OpenAI_V1_IT.java,"package org.mybatis.jpetstore;
+
+import static com.codeborne.selenide.Condition.empty;
+import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.Selenide.title;
+import static org.assertj.core.api.Assertions.assertThat;
+
+import java.util.concurrent.TimeUnit;
+
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
+import org.openqa.selenium.By;
+
+import com.codeborne.selenide.Configuration;
+
+public class JPS_WF08_P3_OpenAI_V1_IT {
+
+  @BeforeAll
+  static void setUp() {
+    Configuration.browser = ""chrome"";
+    Configuration.headless = true;
+    Configuration.timeout = TimeUnit.SECONDS.toMillis(10);
+    Configuration.baseUrl = ""htt<LOCAL_PATH>"";
+  }
+
+  @Test
+  void shouldNavigateToAngelfishItemDetailAndAddToCart() {
+    open(""/"");
+
+    assertThat(title()).isEqualTo(""JPetStore Demo"");
+    $(By.cssSelector(""#Content h2"")).shouldBe(text(""Welcome to JPetStore 6""));
+
+    $(By.linkText(""Enter the Store"")).click();
+    $(By.id(""WelcomeContent"")).shouldBe(empty);
+
+    // Open Fish category
+    $(By.cssSelector(""#SidebarContent a:nth-of-type(1)"")).click();
+    $(By.cssSelector(""#Catalog h2"")).shouldBe(text(""Fish""));
+    $(By.cssSelector(""#Catalog"")).shouldBe(text(""Angelfish""));
+
+    // Open Angelfish product
+    $(By.linkText(""FI-SW-01"")).click();
+    $(By.cssSelector(""#Catalog h2"")).shouldBe(text(""Angelfish""));
+    $(By.cssSelector(""#Catalog"")).shouldBe(text(""Large Angelfish""));
+    $(By.cssSelector(""#Catalog"")).shouldBe(text(""Small Angelfish""));
+
+    // Open Large Angelfish item detail
+    $(By.linkText(""EST-1"")).click();
+    $(By.cssSelector(""#Catalog"")).shouldBe(text(""Large Angelfish""));
+    $(By.cssSelector(""#Catalog"")).shouldBe(text(""Add to Cart""));
+
+    // Add item to cart
+    $(By.linkText(""Add to Cart"")).click();
+    $(By.cssSelector(""#Catalog h2"")).shouldBe(text(""Shopping Cart""));
+    $(By.cssSelector(""#Cart"")).shouldBe(text(""EST-1""));
+    $(By.cssSelector(""#Cart"")).shouldBe(text(""Large Angelfish""));
+  }
+}",2103,60,16,1,5,0,0,13,0,29,15,38,17,5,Corrected Success,1,Success,
+JPetStore6_JPS-WF09_P3_OpenAI_V01,JPetStore 6,JPS-WF09,OpenAI,P3,1,<USER_HOME>/Desktop/Research1/generated_tests/JPetStore6/JPS-WF09/P3/OpenAI/JPS_WF09_P3_OpenAI_V1_IT.java,"package org.mybatis.jpetstore;
+
+import static com.codeborne.selenide.Condition.empty;
+import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.Selenide.title;
+import static org.assertj.core.api.Assertions.assertThat;
+
+import java.util.concurrent.TimeUnit;
+
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
+import org.openqa.selenium.By;
+
+import com.codeborne.selenide.Configuration;
+
+public class JPS_WF09_P3_OpenAI_V1_IT {
+
+  @BeforeAll
+  static void setUp() {
+    Configuration.browser = ""chrome"";
+    Configuration.headless = true;
+    Configuration.timeout = TimeUnit.SECONDS.toMillis(10);
+    Configuration.baseUrl = ""htt<LOCAL_PATH>"";
+  }
+
+  @Test
+  void searchValidKeywordFish() {
+    open(""/"");
+
+    assertThat(title()).isEqualTo(""JPetStore Demo"");
+    $(By.cssSelector(""#Content h2"")).shouldBe(text(""Welcome to JPetStore 6""));
+
+    $(By.linkText(""Enter the Store"")).click();
+    $(By.id(""WelcomeContent"")).shouldBe(empty);
+
+    $(By.name(""keyword"")).setValue(""fish"");
+    $(By.name(""searchProducts"")).click();
+
+    $(By.cssSelector(""#Catalog"")).shouldBe(text(""Product ID""));
+    $(By.cssSelector(""#Catalog"")).shouldBe(text(""Name""));
+
+    $(By.cssSelector(""#Catalog"")).shouldBe(text(""FI-FW-02""));
+    $(By.cssSelector(""#Catalog"")).shouldBe(text(""Goldfish""));
+    $(By.cssSelector(""#Catalog"")).shouldBe(text(""Fresh Water fish from China""));
+
+    $(By.cssSelector(""#Catalog"")).shouldBe(text(""FI-SW-01""));
+    $(By.cssSelector(""#Catalog"")).shouldBe(text(""Angelfish""));
+    $(By.cssSelector(""#Catalog"")).shouldBe(text(""Salt Water fish from Australia""));
+  }
+}",1739,52,14,1,2,1,0,10,0,22,10,32,13,5,Corrected Success,1,Success,
+JPetStore6_JPS-WF10_P3_OpenAI_V01,JPetStore 6,JPS-WF10,OpenAI,P3,1,<USER_HOME>/Desktop/Research1/generated_tests/JPetStore6/JPS-WF10/P3/OpenAI/JPS_WF10_P3_OpenAI_V1_IT.java,"package org.mybatis.jpetstore;
+
+import static com.codeborne.selenide.Condition.empty;
+import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.Selenide.title;
+import static org.assertj.core.api.Assertions.assertThat;
+
+import java.util.concurrent.TimeUnit;
+
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
+import org.openqa.selenium.By;
+
+import com.codeborne.selenide.Configuration;
+
+public class JPS_WF10_P3_OpenAI_V1_IT {
+
+    @BeforeAll
+    static void setup() {
+        Configuration.browser = ""chrome"";
+        Configuration.headless = true;
+        Configuration.timeout = TimeUnit.SECONDS.toMillis(10);
+        Configuration.baseUrl = ""htt<LOCAL_PATH>"";
+    }
+
+    @Test
+    void searchValidKeywordDog() {
+        open(""/"");
+
+        assertThat(title()).isEqualTo(""JPetStore Demo"");
+        $(By.cssSelector(""#Content h2"")).shouldBe(text(""Welcome to JPetStore 6""));
+
+        $(By.linkText(""Enter the Store"")).click();
+        $(By.id(""WelcomeContent"")).shouldBe(empty);
+
+        $(By.name(""keyword"")).setValue(""dog"");
+        $(By.name(""searchProducts"")).click();
+
+        $(By.cssSelector(""#Catalog"")).shouldBe(text(""Product ID""));
+        $(By.cssSelector(""#Catalog"")).shouldBe(text(""Name""));
+
+        $(By.cssSelector(""#Catalog"")).shouldBe(text(""K9-BD-01""));
+        $(By.cssSelector(""#Catalog"")).shouldBe(text(""Bulldog""));
+        $(By.cssSelector(""#Catalog"")).shouldBe(text(""Friendly dog from England""));
+    }
+}",1600,48,11,1,2,1,0,7,0,16,7,26,10,5,Corrected Success,1,Success,
+JPetStore6_JPS-WF06_P3_OpenAI_V02,JPetStore 6,JPS-WF06,OpenAI,P3,2,<USER_HOME>/Desktop/Research1/generated_tests/JPetStore6/JPS-WF06/P3/OpenAI/JPS_WF06_P3_OpenAI_V2_IT.java,"package org.mybatis.jpetstore;
+
+import static com.codeborne.selenide.Condition.empty;
+import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.WebDriverRunner.setWebDriver;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.openqa.selenium.By.cssSelector;
+import static org.openqa.selenium.By.linkText;
+import static com.codeborne.selenide.WebDriverRunner.clearBrowserCache;
+import static com.codeborne.selenide.WebDriverRunner.closeWebDriver;
+import static com.codeborne.selenide.Configuration.baseUrl;
+import static com.codeborne.selenide.Configuration.browser;
+import static com.codeborne.selenide.Configuration.headless;
+import static com.codeborne.selenide.Configuration.timeout;
+import static org.openqa.selenium.By.id;
+import static com.codeborne.selenide.Selenide.title;
+
+import java.util.concurrent.TimeUnit;
+
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
+
+import com.codeborne.selenide.Configuration;
+
+public class JPS_WF06_P3_OpenAI_V2_IT {
+
+    @BeforeAll
+    static void setup() {
+        browser = ""chrome"";
+        headless = true;
+        timeout = TimeUnit.SECONDS.toMillis(10);
+        baseUrl = ""htt<LOCAL_PATH>"";
+    }
+
+    @AfterAll
+    static void tearDown() {
+        closeWebDriver();
+        clearBrowserCache();
+    }
+
+    @Test
+    void reptilesCategoryProductListingWorkflow() {
+        open(""/"");
+
+        assertThat(title()).isEqualTo(""JPetStore Demo"");
+        $(cssSelector(""#Content h2"")).shouldBe(text(""Welcome to JPetStore 6""));
+
+        $(linkText(""Enter the Store"")).click();
+
+        $(id(""WelcomeContent"")).shouldBe(empty);
+
+        $(cssSelector(""#SidebarContent a:nth-of-type(4)"")).click();
+
+        $(cssSelector(""#Catalog h2"")).shouldBe(text(""Reptiles""));
+        $(cssSelector(""#Catalog"")).shouldBe(text(""Rattlesnake""));
+        $(cssSelector(""#Catalog"")).shouldBe(text(""Iguana""));
+    }
+}",2076,61,9,1,2,0,0,6,0,8,5,28,9,5,Passed,1,Success,
+JPetStore6_JPS-WF02_P3_OpenAI_V03,JPetStore 6,JPS-WF02,OpenAI,P3,3,<USER_HOME>/Desktop/Research1/generated_tests/JPetStore6/JPS-WF02/P3/OpenAI/JPS_WF02_P3_OpenAI_V3_IT.java,"package org.mybatis.jpetstore;
+
+import static com.codeborne.selenide.Condition.empty;
+import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.Selenide.title;
+
+import java.util.concurrent.TimeUnit;
+
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
+import org.openqa.selenium.By;
+
+import com.codeborne.selenide.Configuration;
+
+import static org.assertj.core.api.Assertions.assertThat;
+
+public class JPS_WF02_P3_OpenAI_V3_IT {
+
+  @BeforeAll
+  static void setUp() {
+    Configuration.browser = ""CHROME"";
+    Configuration.headless = true;
+    Configuration.timeout = TimeUnit.SECONDS.toMillis(10);
+    Configuration.baseUrl = ""htt<LOCAL_PATH>"";
+  }
+
+  @Test
+  void fishCategoryProductListingWorkflow() {
+    open(""/"");
+
+    assertThat(title()).isEqualTo(""JPetStore Demo"");
+    $(By.cssSelector(""#Content h2"")).shouldBe(text(""Welcome to JPetStore 6""));
+
+    $(By.linkText(""Enter the Store"")).click();
+    $(By.id(""WelcomeContent"")).shouldBe(empty);
+
+    $(By.cssSelector(""#SidebarContent a:nth-of-type(1)"")).click();
+
+    $(By.cssSelector(""#Catalog h2"")).shouldBe(text(""Fish""));
+    $(By.cssSelector(""#Catalog"")).shouldBe(text(""Angelfish""));
+    $(By.cssSelector(""#Catalog"")).shouldBe(text(""Tiger Shark""));
+    $(By.cssSelector(""#Catalog"")).shouldBe(text(""Koi""));
+    $(By.cssSelector(""#Catalog"")).shouldBe(text(""Goldfish""));
+  }
+}",1503,47,11,1,2,0,0,8,0,16,7,25,9,5,Passed,1,Success,
+JPetStore6_JPS-WF03_P3_OpenAI_V03,JPetStore 6,JPS-WF03,OpenAI,P3,3,<USER_HOME>/Desktop/Research1/generated_tests/JPetStore6/JPS-WF03/P3/OpenAI/JPS_WF03_P3_OpenAI_V3_IT.java,"package org.mybatis.jpetstore;
+
+import com.codeborne.selenide.Configuration;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
+import org.openqa.selenium.By;
+
+import java.util.concurrent.TimeUnit;
+
+import static com.codeborne.selenide.Condition.empty;
+import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.Selenide.title;
+import static org.assertj.core.api.Assertions.assertThat;
+
+public class JPS_WF03_P3_OpenAI_V3_IT {
+
+    @BeforeAll
+    static void setUp() {
+        Configuration.browser = ""chrome"";
+        Configuration.headless = true;
+        Configuration.timeout = TimeUnit.SECONDS.toMillis(10);
+        Configuration.baseUrl = ""htt<LOCAL_PATH>"";
+    }
+
+    @Test
+    void dogsCategoryProductListing() {
+        open(""/"");
+
+        assertThat(title()).isEqualTo(""JPetStore Demo"");
+        $(By.cssSelector(""#Content h2"")).shouldBe(text(""Welcome to JPetStore 6""));
+
+        $(By.linkText(""Enter the Store"")).click();
+        $(By.id(""WelcomeContent"")).shouldBe(empty);
+
+        $(By.cssSelector(""#SidebarContent a:nth-of-type(2)"")).click();
+        $(By.cssSelector(""#Catalog h2"")).shouldBe(text(""Dogs""));
+
+        $(By.cssSelector(""#Catalog"")).shouldBe(text(""Bulldog""));
+        $(By.cssSelector(""#Catalog"")).shouldBe(text(""Poodle""));
+        $(By.cssSelector(""#Catalog"")).shouldBe(text(""Dalmation""));
+        $(By.cssSelector(""#Catalog"")).shouldBe(text(""Golden Retriever""));
+        $(By.cssSelector(""#Catalog"")).shouldBe(text(""Labrador Retriever""));
+        $(By.cssSelector(""#Catalog"")).shouldBe(text(""Chihuahua""));
+    }
+}",1715,47,13,1,2,0,0,10,0,20,9,29,11,5,Passed,1,Success,
+JPetStore6_JPS-WF02_P1_DeepSeek_V01,JPetStore 6,JPS-WF02,DeepSeek,P1,1,generated_tests/JPetStore6/JPS-WF02/P1/DeepSeek/JPS_WF02_P1_DeepSeek_V01_IT.java,"package org.mybatis.jpetstore;
+
+import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.Selenide;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.open;
+
+public class JPS_WF02_P1_DeepSeek_V01_IT {
+
+    @BeforeEach
+    public void setUp() {
+        Configuration.baseUrl = ""htt<LOCAL_PATH>"";
+        Configuration.browser = ""chrome"";
+        Configuration.headless = false;
+        Configuration.timeout = 10000;
+    }
+
+    @Test
+    public void testFishCategoryProductListing() {
+        // Open the welcome page
+        open(""/jpetstore"");
+
+        // Click ""Enter the Store"" link
+        $(""#Content a"").click();
+
+        // Click on ""Fish"" category
+        $(""#SidebarContent a[href*='categoryId=FISH']"").click();
+
+        // Verify that the product list contains the expected fish products
+        $(""#Catalog"").shouldHave(
+            text(""Angelfish""),
+            text(""Tiger Shark""),
+            text(""Koi""),
+            text(""Goldfish"")
+        );
+    }
+}
+",1166,42,2,1,2,0,0,3,0,3,4,12,0,1,Passed,1,Success,
+JPetStore6_JPS-WF05_P1_DeepSeek_V01,JPetStore 6,JPS-WF05,DeepSeek,P1,1,generated_tests/JPetStore6/JPS-WF05/P1/DeepSeek/JPS_WF05_P1_DeepSeek_V01_IT.java,"package org.mybatis.jpetstore;
+
+import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.Selenide;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Selenide.*;
+
+public class JPS_WF05_P1_DeepSeek_V01_IT {
+
+    @BeforeEach
+    public void setUp() {
+        Configuration.browser = ""chrome"";
+        Configuration.baseUrl = ""htt<LOCAL_PATH>"";
+        Configuration.timeout = 10000;
+    }
+
+    @Test
+    public void testBirdsCategoryProductListing() {
+        // Open the welcome page
+        open(""/"");
+
+        // Click on ""Enter the Store"" link
+        $(""a[href*='actions/Catalog.action']"").click();
+
+        // Click on ""Birds"" category
+        $(""a[href*='categoryId=BIRDS']"").click();
+
+        // Verify that ""Amazon Parrot"" is present on the page
+        $(""body"").shouldHave(text(""Amazon Parrot""));
+
+        // Verify that ""Finch"" is present on the page
+        $(""body"").shouldHave(text(""Finch""));
+    }
+}
+",1064,38,2,1,2,0,0,0,0,4,4,12,0,1,Passed,1,Success,
+JPetStore6_JPS-WF06_P1_DeepSeek_V01,JPetStore 6,JPS-WF06,DeepSeek,P1,1,generated_tests/JPetStore6/JPS-WF06/P1/DeepSeek/JPS_WF06_P1_DeepSeek_V01_IT.java,"package org.mybatis.jpetstore;
+
+import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.Selenide;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.open;
+
+public class JPS_WF06_P1_DeepSeek_V01_IT {
+
+    @BeforeEach
+    public void setUp() {
+        Configuration.browser = ""chrome"";
+        Configuration.baseUrl = ""htt<LOCAL_PATH>"";
+        Configuration.timeout = 10000;
+    }
+
+    @Test
+    public void testReptilesCategoryProductListing() {
+        // Open welcome page
+        open(""/jpetstore"");
+        
+        // Enter the store by clicking ""Enter the Store"" link
+        $(""a[href*='actions/Catalog.action']"").click();
+        
+        // Click on Reptiles category
+        $(""a[href*='categoryId=REPTILES']"").click();
+        
+        // Verify Rattlesnake is present
+        $(""#Catalog"").shouldHave(text(""Rattlesnake""));
+        
+        // Verify Iguana is present
+        $(""#Catalog"").shouldHave(text(""Iguana""));
+    }
+}
+",1137,39,2,1,2,0,0,2,0,4,4,14,0,1,Passed,1,Success,
+JPetStore6_JPS-WF02_P3_DeepSeek_V01,JPetStore 6,JPS-WF02,DeepSeek,P3,1,generated_tests/JPetStore6/JPS-WF02/P3/DeepSeek/JPS_WF02_P3_DeepSeek_V01_IT.java,"package org.mybatis.jpetstore;
+
+import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.Selenide;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
+import org.openqa.selenium.By;
+
+import java.util.concurrent.TimeUnit;
+
+import static com.codeborne.selenide.Condition.empty;
+import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Selenide.*;
+import static org.assertj.core.api.Assertions.assertThat;
+
+public class JPS_WF02_P3_DeepSeek_V01_IT {
+
+    @BeforeAll
+    public static void setUp() {
+        Configuration.browser = ""chrome"";
+        Configuration.headless = true;
+        Configuration.timeout = TimeUnit.SECONDS.toMillis(10);
+        Configuration.baseUrl = ""htt<LOCAL_PATH>"";
+    }
+
+    @Test
+    public void testFishCategoryProductListing() {
+        // Step 1: Open welcome page
+        open(""/"");
+        
+        // Verify welcome page loaded
+        assertThat(title()).isEqualTo(""JPetStore Demo"");
+        $(By.cssSelector(""#Content h2"")).shouldBe(text(""Welcome to JPetStore 6""));
+        
+        // Step 2: Navigate to store
+        $(By.linkText(""Enter the Store"")).click();
+        
+        // Verify store page loaded
+        $(By.id(""WelcomeContent"")).shouldBe(empty);
+        
+        // Step 3: Click Fish category
+        $(By.cssSelector(""#SidebarContent a:nth-of-type(1)"")).click();
+        
+        // Step 4: Verify Fish category page
+        $(By.cssSelector(""#Catalog h2"")).shouldBe(text(""Fish""));
+        
+        // Step 5: Verify required fish products are displayed
+        $(By.cssSelector(""#Catalog"")).shouldBe(text(""Angelfish""));
+        $(By.cssSelector(""#Catalog"")).shouldBe(text(""Tiger Shark""));
+        $(By.cssSelector(""#Catalog"")).shouldBe(text(""Koi""));
+        $(By.cssSelector(""#Catalog"")).shouldBe(text(""Goldfish""));
+        
+        // Step 6: Return to main menu (cleanup)
+        $(By.linkText(""Return to Main Menu"")).click();
+    }
+}
+",1980,57,11,1,3,0,0,8,0,17,8,24,10,5,Passed,1,Success,
+JPetStore6_JPS-WF03_P3_DeepSeek_V01,JPetStore 6,JPS-WF03,DeepSeek,P3,1,generated_tests/JPetStore6/JPS-WF03/P3/DeepSeek/JPS_WF03_P3_DeepSeek_V01_IT.java,"package org.mybatis.jpetstore;
+
+import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.Selenide;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
+import org.openqa.selenium.By;
+
+import java.util.concurrent.TimeUnit;
+
+import static com.codeborne.selenide.Condition.empty;
+import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Selenide.*;
+import static org.assertj.core.api.Assertions.assertThat;
+
+public class JPS_WF03_P3_DeepSeek_V01_IT {
+
+    @BeforeAll
+    public static void setUp() {
+        Configuration.browser = ""chrome"";
+        Configuration.headless = true;
+        Configuration.timeout = TimeUnit.SECONDS.toMillis(10);
+        Configuration.baseUrl = ""htt<LOCAL_PATH>"";
+    }
+
+    @Test
+    public void testDogsCategoryProductListing() {
+        // Step 1: Open welcome page
+        open(""/"");
+        assertThat(title()).isEqualTo(""JPetStore Demo"");
+        $(By.cssSelector(""#Content h2"")).shouldBe(text(""Welcome to JPetStore 6""));
+
+        // Step 2: Navigate to store
+        $(By.linkText(""Enter the Store"")).click();
+        $(By.id(""WelcomeContent"")).shouldBe(empty);
+
+        // Step 3: Click Dogs category
+        $(By.cssSelector(""#SidebarContent a:nth-of-type(2)"")).click();
+
+        // Step 4: Verify Dogs category page
+        $(By.cssSelector(""#Catalog h2"")).shouldBe(text(""Dogs""));
+
+        // Step 5: Verify all required dog products are present
+        $(By.cssSelector(""#Catalog"")).shouldBe(text(""Bulldog""));
+        $(By.cssSelector(""#Catalog"")).shouldBe(text(""Poodle""));
+        $(By.cssSelector(""#Catalog"")).shouldBe(text(""Dalmation""));
+        $(By.cssSelector(""#Catalog"")).shouldBe(text(""Golden Retriever""));
+        $(By.cssSelector(""#Catalog"")).shouldBe(text(""Labrador Retriever""));
+        $(By.cssSelector(""#Catalog"")).shouldBe(text(""Chihuahua""));
+    }
+}
+",1894,52,13,1,2,0,0,10,0,20,9,27,11,5,Passed,1,Success,
+JPetStore6_JPS-WF04_P3_DeepSeek_V01,JPetStore 6,JPS-WF04,DeepSeek,P3,1,generated_tests/JPetStore6/JPS-WF04/P3/DeepSeek/JPS_WF04_P3_DeepSeek_V01_IT.java,"package org.mybatis.jpetstore;
+
+import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.Selenide;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
+import org.openqa.selenium.By;
+
+import java.util.concurrent.TimeUnit;
+
+import static com.codeborne.selenide.Condition.empty;
+import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.title;
+import static org.assertj.core.api.Assertions.assertThat;
+
+public class JPS_WF04_P3_DeepSeek_V01_IT {
+
+    @BeforeAll
+    public static void setUp() {
+        Configuration.browser = ""chrome"";
+        Configuration.headless = true;
+        Configuration.timeout = TimeUnit.SECONDS.toMillis(10);
+        Configuration.baseUrl = ""htt<LOCAL_PATH>"";
+    }
+
+    @Test
+    public void testCatsCategoryProductListing() {
+        // Step 1: Open welcome page
+        Selenide.open(""/"");
+
+        // Step 2: Verify welcome page title
+        assertThat(title()).isEqualTo(""JPetStore Demo"");
+
+        // Step 3: Verify welcome page content
+        $(By.cssSelector(""#Content h2"")).shouldHave(text(""Welcome to JPetStore 6""));
+
+        // Step 4: Navigate to the store
+        $(By.linkText(""Enter the Store"")).click();
+
+        // Step 5: Verify navigation to store page
+        $(By.id(""WelcomeContent"")).shouldBe(empty);
+
+        // Step 6: Click on Cats category in sidebar
+        $(By.cssSelector(""#SidebarContent a:nth-of-type(3)"")).click();
+
+        // Step 7: Verify Cats category page heading
+        $(By.cssSelector(""#Catalog h2"")).shouldHave(text(""Cats""));
+
+        // Step 8: Semantic oracle - verify Manx and Persian are present
+        $(By.cssSelector(""#Catalog"")).shouldHave(text(""Manx""));
+        $(By.cssSelector(""#Catalog"")).shouldHave(text(""Persian""));
+    }
+}
+",1859,55,9,1,2,0,0,6,0,12,9,22,7,5,Passed,1,Success,
+JPetStore6_JPS-WF05_P3_DeepSeek_V01,JPetStore 6,JPS-WF05,DeepSeek,P3,1,generated_tests/JPetStore6/JPS-WF05/P3/DeepSeek/JPS_WF05_P3_DeepSeek_V01_IT.java,"package org.mybatis.jpetstore;
+
+import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.Selenide;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
+import org.openqa.selenium.By;
+
+import java.util.concurrent.TimeUnit;
+
+import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Condition.empty;
+import static com.codeborne.selenide.Selenide.*;
+import static org.assertj.core.api.Assertions.assertThat;
+
+public class JPS_WF05_P3_DeepSeek_V01_IT {
+
+    @BeforeAll
+    public static void setUp() {
+        Configuration.browser = ""chrome"";
+        Configuration.headless = true;
+        Configuration.timeout = TimeUnit.SECONDS.toMillis(10);
+        Configuration.baseUrl = ""htt<LOCAL_PATH>"";
+    }
+
+    @Test
+    public void testBirdsCategoryProductListing() {
+        // Step 1: Open welcome page
+        open(""/"");
+        
+        // Step 2: Verify welcome page loaded
+        assertThat(title()).isEqualTo(""JPetStore Demo"");
+        $(By.cssSelector(""#Content h2"")).shouldBe(text(""Welcome to JPetStore 6""));
+        
+        // Step 3: Navigate to store
+        $(By.linkText(""Enter the Store"")).click();
+        
+        // Step 4: Verify store page loaded
+        $(By.id(""WelcomeContent"")).shouldBe(empty);
+        
+        // Step 5: Click Birds category link (5th link in sidebar)
+        $(By.cssSelector(""#SidebarContent a:nth-of-type(5)"")).click();
+        
+        // Step 6: Verify Birds category page loaded
+        $(By.cssSelector(""#Catalog h2"")).shouldBe(text(""Birds""));
+        
+        // Step 7: Verify Amazon Parrot and Finch are present
+        $(By.cssSelector(""#Catalog"")).shouldBe(text(""Amazon Parrot""));
+        $(By.cssSelector(""#Catalog"")).shouldBe(text(""Finch""));
+        
+        // Step 8: Navigate back to main menu
+        $(By.linkText(""Return to Main Menu"")).click();
+    }
+}
+",1901,55,9,1,3,0,0,6,0,13,6,20,8,5,Passed,1,Success,
+JPetStore6_JPS-WF06_P3_DeepSeek_V01,JPetStore 6,JPS-WF06,DeepSeek,P3,1,generated_tests/JPetStore6/JPS-WF06/P3/DeepSeek/JPS_WF06_P3_DeepSeek_V01_IT.java,"package org.mybatis.jpetstore;
+
+import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.Selenide;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
+import org.openqa.selenium.By;
+
+import java.util.concurrent.TimeUnit;
+
+import static com.codeborne.selenide.Condition.empty;
+import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.Selenide.title;
+import static org.assertj.core.api.Assertions.assertThat;
+
+public class JPS_WF06_P3_DeepSeek_V01_IT {
+
+    @BeforeAll
+    public static void setUp() {
+        Configuration.browser = ""chrome"";
+        Configuration.headless = true;
+        Configuration.timeout = TimeUnit.SECONDS.toMillis(10);
+        Configuration.baseUrl = ""htt<LOCAL_PATH>"";
+    }
+
+    @Test
+    public void testReptilesCategoryProductListing() {
+        // Step 1: Open welcome page
+        open(""/"");
+        
+        // Verify welcome page loaded
+        assertThat(title()).isEqualTo(""JPetStore Demo"");
+        $(By.cssSelector(""#Content h2"")).shouldHave(text(""Welcome to JPetStore 6""));
+        
+        // Step 2: Navigate to store
+        $(By.linkText(""Enter the Store"")).click();
+        
+        // Verify store page loaded
+        $(By.id(""WelcomeContent"")).shouldBe(empty);
+        
+        // Step 3: Navigate to Reptiles category
+        $(By.cssSelector(""#SidebarContent a:nth-of-type(4)"")).click();
+        
+        // Step 4: Verify Reptiles category page
+        $(By.cssSelector(""#Catalog h2"")).shouldHave(text(""Reptiles""));
+        
+        // Step 5: Verify semantic oracle - Rattlesnake and Iguana are present
+        $(By.cssSelector(""#Catalog"")).shouldHave(text(""Rattlesnake""));
+        $(By.cssSelector(""#Catalog"")).shouldHave(text(""Iguana""));
+        
+        // Step 6: Return to main menu (cleanup)
+        $(By.linkText(""Return to Main Menu"")).click();
+    }
+}
+",2001,57,9,1,3,0,0,6,0,13,10,24,8,5,Passed,1,Success,
+JPetStore6_JPS-WF18_P3_DeepSeek_V01,JPetStore 6,JPS-WF18,DeepSeek,P3,1,generated_tests/JPetStore6/JPS-WF18/P3/DeepSeek/JPS_WF18_P3_DeepSeek_V01_IT.java,"package org.mybatis.jpetstore;
+
+import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.Selenide;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
+import org.openqa.selenium.By;
+
+import java.util.concurrent.TimeUnit;
+
+import static com.codeborne.selenide.Condition.*;
+import static com.codeborne.selenide.Selenide.*;
+import static org.assertj.core.api.Assertions.assertThat;
+
+public class JPS_WF18_P3_DeepSeek_V01_IT {
+
+    @BeforeAll
+    public static void setUp() {
+        Configuration.browser = ""chrome"";
+        Configuration.headless = true;
+        Configuration.timeout = TimeUnit.SECONDS.toMillis(10);
+        Configuration.baseUrl = ""htt<LOCAL_PATH>"";
+    }
+
+    @Test
+    public void testAddItemsFromMultipleCategories() {
+        // Step 1: Open the welcome page
+        open(""/"");
+        assertThat(title()).isEqualTo(""JPetStore Demo"");
+        $(By.cssSelector(""#Content h2"")).shouldBe(text(""Welcome to JPetStore 6""));
+
+        // Step 2: Enter the store
+        $(By.linkText(""Enter the Store"")).click();
+        $(By.id(""WelcomeContent"")).shouldBe(empty);
+
+        // Step 3: Navigate to Fish category
+        $(By.cssSelector(""#QuickLinks a[href*='categoryId=FISH']"")).click();
+        $(By.cssSelector(""#Catalog h2"")).shouldBe(text(""Fish""));
+
+        // Step 4: Add a Fish item to cart
+        $(By.linkText(""FI-SW-01"")).click();
+        $(By.cssSelector(""#Catalog h2"")).shouldBe(text(""Angelfish""));
+        $(By.linkText(""Add to Cart"")).click();
+        $(By.cssSelector(""#Cart h2"")).shouldBe(text(""Shopping Cart""));
+        $(By.cssSelector(""#Cart"")).shouldBe(text(""Angelfish""));
+
+        // Step 5: Continue shopping
+        $(By.linkText(""Return to Main Menu"")).click();
+        $(By.cssSelector(""#WelcomeContent"")).shouldBe(empty);
+
+        // Step 6: Navigate to Dogs category
+        $(By.cssSelector(""#QuickLinks a[href*='categoryId=DOGS']"")).click();
+        $(By.cssSelector(""#Catalog h2"")).shouldBe(text(""Dogs""));
+
+        // Step 7: Add a Dog item to cart
+        $(By.linkText(""K9-BD-01"")).click();
+        $(By.cssSelector(""#Catalog h2"")).shouldBe(text(""Bulldog""));
+        $(By.linkText(""Add to Cart"")).click();
+        $(By.cssSelector(""#Cart h2"")).shouldBe(text(""Shopping Cart""));
+
+        // Step 8: Verify both items are in the cart
+        $(By.cssSelector(""#Cart"")).shouldBe(text(""Angelfish""));
+        $(By.cssSelector(""#Cart"")).shouldBe(text(""Bulldog""));
+
+        // Semantic Oracle: Verify items from both Fish and Dogs categories
+        assertThat($(By.cssSelector(""#Cart"")).getText()).contains(""Angelfish"", ""Bulldog"");
+    }
+}
+",2635,69,18,1,8,0,0,15,0,35,18,39,21,6,Passed,1,Success,
+JPetStore6_JPS-WF05_P2_DeepSeek_V02,JPetStore 6,JPS-WF05,DeepSeek,P2,2,generated_tests/JPetStore6/JPS-WF05/P2/DeepSeek/JPS_WF05_P2_DeepSeek_V02_IT.java,"package org.mybatis.jpetstore;
+
+import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.Selenide;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
+import org.openqa.selenium.By;
+
+import java.util.concurrent.TimeUnit;
+
+import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Selenide.$;
+
+public class JPS_WF05_P2_DeepSeek_V02_IT {
+
+    @BeforeAll
+    public static void setUp() {
+        Configuration.browser = ""chrome"";
+        Configuration.headless = true;
+        Configuration.timeout = TimeUnit.SECONDS.toMillis(10);
+        Configuration.baseUrl = ""htt<LOCAL_PATH>"";
+    }
+
+    @Test
+    public void testBirdsCategoryProductListing() {
+        // Open welcome page and enter store
+        Selenide.open(""/"");
+        $(By.xpath(""//a[contains(text(),'Enter the Store')]"")).click();
+
+        // Click Birds category
+        $(By.xpath(""//area[@alt='Birds']"")).click();
+
+        // Verify Amazon Parrot and Finch are displayed
+        $(By.xpath(""//td[contains(text(),'Amazon Parrot')]"")).shouldHave(text(""Amazon Parrot""));
+        $(By.xpath(""//td[contains(text(),'Finch')]"")).shouldHave(text(""Finch""));
+    }
+}
+",1212,38,5,1,2,0,0,0,8,4,7,13,4,1,Passed,1,Success,
+JPetStore6_JPS-WF01_P3_DeepSeek_V02,JPetStore 6,JPS-WF01,DeepSeek,P3,2,generated_tests/JPetStore6/JPS-WF01/P3/DeepSeek/JPS_WF01_P3_DeepSeek_V02_IT.java,"package org.mybatis.jpetstore;
+
+import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.Selenide;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
+import org.openqa.selenium.By;
+
+import java.util.concurrent.TimeUnit;
+
+import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Condition.empty;
+import static com.codeborne.selenide.Selenide.*;
+import static org.assertj.core.api.Assertions.assertThat;
+
+public class JPS_WF01_P3_DeepSeek_V02_IT {
+
+    @BeforeAll
+    public static void setUp() {
+        Configuration.browser = ""CHROME"";
+        Configuration.headless = true;
+        Configuration.timeout = TimeUnit.SECONDS.toMillis(10);
+        Configuration.baseUrl = ""htt<LOCAL_PATH>"";
+    }
+
+    @Test
+    public void testWelcomeToMainCatalogWorkflow() {
+        // Step 1: Open welcome page
+        open(""/"");
+        
+        // Verify welcome page loaded
+        assertThat(title()).isEqualTo(""JPetStore Demo"");
+        $(By.cssSelector(""#Content h2"")).shouldHave(text(""Welcome to JPetStore 6""));
+        
+        // Step 2: Navigate to store
+        $(By.linkText(""Enter the Store"")).click();
+        
+        // Verify navigation to main catalog page
+        $(By.id(""WelcomeContent"")).shouldBe(empty);
+        
+        // Step 3: Verify main catalog page shows all categories
+        // Verify Fish category
+        $(By.cssSelector(""#SidebarContent a:nth-of-type(1)"")).click();
+        $(By.cssSelector(""#Catalog h2"")).shouldHave(text(""Fish""));
+        $(By.linkText(""Return to Main Menu"")).click();
+        
+        // Verify Dogs category
+        $(By.cssSelector(""#SidebarContent a:nth-of-type(2)"")).click();
+        $(By.cssSelector(""#Catalog h2"")).shouldHave(text(""Dogs""));
+        $(By.linkText(""Return to Main Menu"")).click();
+        
+        // Verify Cats category
+        $(By.cssSelector(""#SidebarContent a:nth-of-type(3)"")).click();
+        $(By.cssSelector(""#Catalog h2"")).shouldHave(text(""Cats""));
+        $(By.linkText(""Return to Main Menu"")).click();
+        
+        // Verify Reptiles category
+        $(By.cssSelector(""#SidebarContent a:nth-of-type(4)"")).click();
+        $(By.cssSelector(""#Catalog h2"")).shouldHave(text(""Reptiles""));
+        $(By.linkText(""Return to Main Menu"")).click();
+        
+        // Verify Birds category
+        $(By.cssSelector(""#SidebarContent a:nth-of-type(5)"")).click();
+        $(By.cssSelector(""#Catalog h2"")).shouldHave(text(""Birds""));
+    }
+}
+",2502,67,11,1,10,0,0,12,0,28,17,31,17,5,Passed,1,Success,
+JPetStore6_JPS-WF02_P3_DeepSeek_V02,JPetStore 6,JPS-WF02,DeepSeek,P3,2,generated_tests/JPetStore6/JPS-WF02/P3/DeepSeek/JPS_WF02_P3_DeepSeek_V02_IT.java,"package org.mybatis.jpetstore;
+
+import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.Selenide;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
+import org.openqa.selenium.By;
+
+import java.util.concurrent.TimeUnit;
+
+import static com.codeborne.selenide.Condition.empty;
+import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Selenide.*;
+import static org.assertj.core.api.Assertions.assertThat;
+
+public class JPS_WF02_P3_DeepSeek_V02_IT {
+
+    @BeforeAll
+    public static void setUp() {
+        Configuration.browser = ""chrome"";
+        Configuration.headless = true;
+        Configuration.timeout = TimeUnit.SECONDS.toMillis(10);
+        Configuration.baseUrl = ""htt<LOCAL_PATH>"";
+    }
+
+    @Test
+    public void testFishCategoryProductListing() {
+        // Step 1: Open welcome page
+        open(""/"");
+        
+        // Verify welcome page
+        assertThat(title()).isEqualTo(""JPetStore Demo"");
+        $(By.cssSelector(""#Content h2"")).shouldHave(text(""Welcome to JPetStore 6""));
+        
+        // Step 2: Navigate to store
+        $(By.linkText(""Enter the Store"")).click();
+        
+        // Verify store page loaded
+        $(By.id(""WelcomeContent"")).shouldBe(empty);
+        
+        // Step 3: Click Fish category
+        $(By.cssSelector(""#SidebarContent a:nth-of-type(1)"")).click();
+        
+        // Step 4: Verify Fish category page
+        $(By.cssSelector(""#Catalog h2"")).shouldHave(text(""Fish""));
+        
+        // Step 5: Verify required fish products
+        $(By.cssSelector(""#Catalog"")).shouldHave(text(""Angelfish""));
+        $(By.cssSelector(""#Catalog"")).shouldHave(text(""Tiger Shark""));
+        $(By.cssSelector(""#Catalog"")).shouldHave(text(""Koi""));
+        $(By.cssSelector(""#Catalog"")).shouldHave(text(""Goldfish""));
+        
+        // Step 6: Return to main menu
+        $(By.linkText(""Return to Main Menu"")).click();
+    }
+}
+",1961,57,11,1,3,0,0,8,0,17,14,24,10,5,Passed,1,Success,
+JPetStore6_JPS-WF03_P3_DeepSeek_V02,JPetStore 6,JPS-WF03,DeepSeek,P3,2,generated_tests/JPetStore6/JPS-WF03/P3/DeepSeek/JPS_WF03_P3_DeepSeek_V02_IT.java,"package org.mybatis.jpetstore;
+
+import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.Selenide;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
+import org.openqa.selenium.By;
+
+import java.util.concurrent.TimeUnit;
+
+import static com.codeborne.selenide.Condition.empty;
+import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.title;
+import static org.assertj.core.api.Assertions.assertThat;
+
+public class JPS_WF03_P3_DeepSeek_V02_IT {
+
+    @BeforeAll
+    public static void setUp() {
+        Configuration.browser = ""chrome"";
+        Configuration.headless = true;
+        Configuration.timeout = TimeUnit.SECONDS.toMillis(10);
+        Configuration.baseUrl = ""htt<LOCAL_PATH>"";
+    }
+
+    @Test
+    public void testDogsCategoryProductListing() {
+        // Step 1: Open welcome page
+        Selenide.open(""/"");
+        assertThat(title()).isEqualTo(""JPetStore Demo"");
+        $(By.cssSelector(""#Content h2"")).shouldBe(text(""Welcome to JPetStore 6""));
+
+        // Step 2: Navigate to the store
+        $(By.linkText(""Enter the Store"")).click();
+        $(By.id(""WelcomeContent"")).shouldBe(empty);
+
+        // Step 3: Click Dogs category in sidebar
+        $(By.cssSelector(""#SidebarContent a:nth-of-type(2)"")).click();
+
+        // Step 4: Verify Dogs category page
+        $(By.cssSelector(""#Catalog h2"")).shouldBe(text(""Dogs""));
+
+        // Step 5: Verify all required dog products are displayed
+        $(By.cssSelector(""#Catalog"")).shouldBe(text(""Bulldog""));
+        $(By.cssSelector(""#Catalog"")).shouldBe(text(""Poodle""));
+        $(By.cssSelector(""#Catalog"")).shouldBe(text(""Dalmation""));
+        $(By.cssSelector(""#Catalog"")).shouldBe(text(""Golden Retriever""));
+        $(By.cssSelector(""#Catalog"")).shouldBe(text(""Labrador Retriever""));
+        $(By.cssSelector(""#Catalog"")).shouldBe(text(""Chihuahua""));
+    }
+}
+",1973,53,13,1,2,0,0,10,0,20,9,30,11,5,Passed,1,Success,
+JPetStore6_JPS-WF04_P3_DeepSeek_V02,JPetStore 6,JPS-WF04,DeepSeek,P3,2,generated_tests/JPetStore6/JPS-WF04/P3/DeepSeek/JPS_WF04_P3_DeepSeek_V02_IT.java,"package org.mybatis.jpetstore;
+
+import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.Selenide;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
+import org.openqa.selenium.By;
+
+import java.util.concurrent.TimeUnit;
+
+import static com.codeborne.selenide.Condition.empty;
+import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Selenide.*;
+import static org.assertj.core.api.Assertions.assertThat;
+
+public class JPS_WF04_P3_DeepSeek_V02_IT {
+
+    @BeforeAll
+    public static void setUp() {
+        Configuration.browser = ""chrome"";
+        Configuration.headless = true;
+        Configuration.timeout = TimeUnit.SECONDS.toMillis(10);
+        Configuration.baseUrl = ""htt<LOCAL_PATH>"";
+    }
+
+    @Test
+    public void testCatsCategoryProductListing() {
+        // Open welcome page
+        open(""/"");
+        
+        // Verify welcome page title
+        assertThat(title()).isEqualTo(""JPetStore Demo"");
+        
+        // Verify welcome page content
+        $(By.cssSelector(""#Content h2"")).shouldHave(text(""Welcome to JPetStore 6""));
+        
+        // Navigate to store
+        $(By.linkText(""Enter the Store"")).click();
+        
+        // Verify navigation to store page
+        $(By.id(""WelcomeContent"")).shouldBe(empty);
+        
+        // Click Cats category in sidebar
+        $(By.cssSelector(""#SidebarContent a:nth-of-type(3)"")).click();
+        
+        // Verify Cats category page
+        $(By.cssSelector(""#Catalog h2"")).shouldHave(text(""Cats""));
+        
+        // Verify Manx product is displayed
+        $(By.cssSelector(""#Catalog"")).shouldHave(text(""Manx""));
+        
+        // Verify Persian product is displayed
+        $(By.cssSelector(""#Catalog"")).shouldHave(text(""Persian""));
+        
+        // Return to main menu
+        $(By.linkText(""Return to Main Menu"")).click();
+    }
+}
+",1904,59,9,1,3,0,0,6,0,13,10,20,8,5,Passed,1,Success,
+JPetStore6_JPS-WF05_P3_DeepSeek_V02,JPetStore 6,JPS-WF05,DeepSeek,P3,2,generated_tests/JPetStore6/JPS-WF05/P3/DeepSeek/JPS_WF05_P3_DeepSeek_V02_IT.java,"package org.mybatis.jpetstore;
+
+import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.Selenide;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
+import org.openqa.selenium.By;
+
+import java.util.concurrent.TimeUnit;
+
+import static com.codeborne.selenide.Condition.empty;
+import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Selenide.*;
+import static org.assertj.core.api.Assertions.assertThat;
+
+public class JPS_WF05_P3_DeepSeek_V02_IT {
+
+    @BeforeAll
+    public static void setUp() {
+        Configuration.browser = ""chrome"";
+        Configuration.headless = true;
+        Configuration.timeout = TimeUnit.SECONDS.toMillis(10);
+        Configuration.baseUrl = ""htt<LOCAL_PATH>"";
+    }
+
+    @Test
+    public void testBirdsCategoryProductListing() {
+        // Step 1: Open welcome page
+        open(""/"");
+
+        // Step 2: Verify welcome page
+        assertThat(title()).isEqualTo(""JPetStore Demo"");
+        $(By.cssSelector(""#Content h2"")).shouldHave(text(""Welcome to JPetStore 6""));
+
+        // Step 3: Navigate to store
+        $(By.linkText(""Enter the Store"")).click();
+        $(By.id(""WelcomeContent"")).shouldBe(empty);
+
+        // Step 4: Click Birds category in sidebar
+        $(By.cssSelector(""#SidebarContent a:nth-of-type(5)"")).click();
+
+        // Step 5: Verify Birds category page
+        $(By.cssSelector(""#Catalog h2"")).shouldHave(text(""Birds""));
+
+        // Step 6: Semantic oracle - verify Amazon Parrot and Finch are present
+        $(By.cssSelector(""#Catalog"")).shouldHave(text(""Amazon Parrot""));
+        $(By.cssSelector(""#Catalog"")).shouldHave(text(""Finch""));
+
+        // Step 7: Return to main menu (cleanup)
+        $(By.linkText(""Return to Main Menu"")).click();
+    }
+}
+",1799,53,9,1,3,0,0,6,0,13,10,20,8,5,Passed,1,Success,
+JPetStore6_JPS-WF06_P3_DeepSeek_V02,JPetStore 6,JPS-WF06,DeepSeek,P3,2,generated_tests/JPetStore6/JPS-WF06/P3/DeepSeek/JPS_WF06_P3_DeepSeek_V02_IT.java,"package org.mybatis.jpetstore;
+
+import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.Selenide;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
+import org.openqa.selenium.By;
+
+import java.util.concurrent.TimeUnit;
+
+import static com.codeborne.selenide.Condition.empty;
+import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Selenide.*;
+import static org.assertj.core.api.Assertions.assertThat;
+
+public class JPS_WF06_P3_DeepSeek_V02_IT {
+
+    @BeforeAll
+    public static void setUp() {
+        Configuration.browser = ""chrome"";
+        Configuration.headless = true;
+        Configuration.timeout = TimeUnit.SECONDS.toMillis(10);
+        Configuration.baseUrl = ""htt<LOCAL_PATH>"";
+    }
+
+    @Test
+    public void testReptilesCategoryProductListing() {
+        // Step 1: Open welcome page
+        open(""/"");
+        
+        // Verify welcome page is loaded
+        assertThat(title()).isEqualTo(""JPetStore Demo"");
+        $(By.cssSelector(""#Content h2"")).shouldHave(text(""Welcome to JPetStore 6""));
+        
+        // Step 2: Navigate to store
+        $(By.linkText(""Enter the Store"")).click();
+        
+        // Verify store page is loaded
+        $(By.id(""WelcomeContent"")).shouldBe(empty);
+        
+        // Step 3: Click Reptiles category
+        $(By.cssSelector(""#SidebarContent a:nth-of-type(4)"")).click();
+        
+        // Step 4: Verify Reptiles category page
+        $(By.cssSelector(""#Catalog h2"")).shouldHave(text(""Reptiles""));
+        
+        // Step 5: Verify semantic oracle - Rattlesnake and Iguana are present
+        $(By.cssSelector(""#Catalog"")).shouldHave(text(""Rattlesnake""));
+        $(By.cssSelector(""#Catalog"")).shouldHave(text(""Iguana""));
+        
+        // Step 6: Return to main menu
+        $(By.linkText(""Return to Main Menu"")).click();
+    }
+}
+",1886,55,9,1,3,0,0,6,0,13,10,20,8,5,Passed,1,Success,
+JPetStore6_JPS-WF14_P3_DeepSeek_V02,JPetStore 6,JPS-WF14,DeepSeek,P3,2,generated_tests/JPetStore6/JPS-WF14/P3/DeepSeek/JPS_WF14_P3_DeepSeek_V02_IT.java,"package org.mybatis.jpetstore;
+
+import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.Selenide;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
+import org.openqa.selenium.By;
+
+import java.util.concurrent.TimeUnit;
+
+import static com.codeborne.selenide.Condition.*;
+import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Selenide.title;
+import static org.assertj.core.api.Assertions.assertThat;
+
+public class JPS_WF14_P3_DeepSeek_V02_IT {
+
+    @BeforeAll
+    public static void setUp() {
+        Configuration.browser = ""chrome"";
+        Configuration.headless = true;
+        Configuration.timeout = TimeUnit.SECONDS.toMillis(10);
+        Configuration.baseUrl = ""htt<LOCAL_PATH>"";
+    }
+
+    @Test
+    public void testUpdateCartQuantity() {
+        // Step 1: Open the welcome page
+        open(""/"");
+        assertThat(title()).isEqualTo(""JPetStore Demo"");
+
+        // Step 2: Navigate to the store
+        $(By.linkText(""Enter the Store"")).click();
+        $(By.id(""WelcomeContent"")).shouldBe(empty);
+
+        // Step 3: Navigate to a product category (e.g., Fish)
+        $(By.cssSelector(""#QuickLinks a[href*='FISH']"")).click();
+        $(By.cssSelector(""#Catalog h2"")).shouldHave(text(""Fish""));
+
+        // Step 4: Select a product (e.g., Angelfish)
+        $(By.linkText(""FI-SW-01"")).click();
+        $(By.cssSelector(""#Catalog h2"")).shouldHave(text(""Angelfish""));
+
+        // Step 5: Add item to cart
+        $(By.linkText(""Add to Cart"")).click();
+        $(By.cssSelector(""#Cart h2"")).shouldHave(text(""Shopping Cart""));
+
+        // Step 6: Update quantity to 2
+        $(By.name(""EST-1"")).clear();
+        $(By.name(""EST-1"")).setValue(""2"");
+
+        // Step 7: Click Update Cart
+        $(By.name(""updateCartQuantities"")).click();
+
+        // Step 8: Verify quantity is updated and cart remains correct
+        $(By.cssSelector(""#Cart h2"")).shouldHave(text(""Shopping Cart""));
+        $(By.name(""EST-1"")).shouldHave(value(""2""));
+
+        // Verify cart total is updated (assuming unit price is known, but we just verify the page is correct)
+        $(By.cssSelector(""#Cart"")).shouldHave(text(""Sub Total""));
+    }
+}
+",2218,63,11,1,5,1,0,7,0,20,13,29,14,5,Passed,1,Success,
+JPetStore6_JPS-WF15_P3_DeepSeek_V02,JPetStore 6,JPS-WF15,DeepSeek,P3,2,generated_tests/JPetStore6/JPS-WF15/P3/DeepSeek/JPS_WF15_P3_DeepSeek_V02_IT.java,"package org.mybatis.jpetstore;
+
+import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.Selenide;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
+import org.openqa.selenium.By;
+
+import java.util.concurrent.TimeUnit;
+
+import static com.codeborne.selenide.Condition.empty;
+import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.Selenide.title;
+import static org.assertj.core.api.Assertions.assertThat;
+
+public class JPS_WF15_P3_DeepSeek_V02_IT {
+
+    @BeforeAll
+    public static void setUp() {
+        Configuration.browser = ""chrome"";
+        Configuration.headless = true;
+        Configuration.timeout = TimeUnit.SECONDS.toMillis(10);
+        Configuration.baseUrl = ""htt<LOCAL_PATH>"";
+    }
+
+    @Test
+    public void testRemoveItemFromCart() {
+        // Step 1: Open welcome page and verify
+        open(""/"");
+        assertThat(title()).isEqualTo(""JPetStore Demo"");
+        $(By.cssSelector(""#Content h2"")).shouldHave(text(""Welcome to JPetStore 6""));
+
+        // Step 2: Navigate to the store
+        $(By.linkText(""Enter the Store"")).click();
+        $(By.id(""WelcomeContent"")).shouldBe(empty);
+
+        // Step 3: Navigate to a category (e.g., Fish)
+        $(By.cssSelector(""#SidebarContent a[href*='categoryId=FISH']"")).click();
+        $(By.cssSelector(""#Catalog h2"")).shouldHave(text(""Fish""));
+
+        // Step 4: Select a product (e.g., Angelfish)
+        $(By.linkText(""FI-SW-01"")).click();
+        $(By.cssSelector(""#Catalog h2"")).shouldHave(text(""Angelfish""));
+
+        // Step 5: Add item to cart
+        $(By.linkText(""Add to Cart"")).click();
+        $(By.cssSelector(""#Cart h2"")).shouldHave(text(""Shopping Cart""));
+
+        // Step 6: Verify item is in cart
+        $(By.cssSelector(""#Cart"")).shouldHave(text(""FI-SW-01""));
+
+        // Step 7: Remove the item from cart
+        $(By.cssSelector(""a[href*='removeItemFromCart']"")).click();
+
+        // Step 8: Verify item is no longer present or cart is empty
+        $(By.cssSelector(""#Cart"")).shouldNotHave(text(""FI-SW-01""));
+        // Optional: Verify cart is empty message
+        $(By.cssSelector(""#Cart"")).shouldHave(text(""Your cart is empty.""));
+    }
+}
+",2326,63,12,1,5,0,0,9,0,22,16,31,13,5,Passed,1,Success,
+JPetStore6_JPS-WF07_P2_DeepSeek_V03,JPetStore 6,JPS-WF07,DeepSeek,P2,3,generated_tests/JPetStore6/JPS-WF07/P2/DeepSeek/JPS_WF07_P2_DeepSeek_V03_IT.java,"package org.mybatis.jpetstore;
+
+import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.Selenide;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
+import org.openqa.selenium.By;
+
+import java.util.concurrent.TimeUnit;
+
+import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.title;
+
+public class JPS_WF07_P2_DeepSeek_V03_IT {
+
+    @BeforeAll
+    public static void setUp() {
+        Configuration.browser = ""chrome"";
+        Configuration.headless = true;
+        Configuration.timeout = TimeUnit.SECONDS.toMillis(10);
+        Configuration.baseUrl = ""htt<LOCAL_PATH>"";
+    }
+
+    @Test
+    public void testFishProductDetailNavigation() {
+        // Enter store
+        Selenide.open(""/"");
+        $(By.xpath(""//a[contains(text(),'Enter the Store')]"")).click();
+
+        // Open Fish category
+        $(By.xpath(""//div[@id='Content']//a[contains(@href,'categoryId=FISH')]"")).click();
+
+        // Click Angelfish product
+        $(By.xpath(""//a[contains(@href,'productId=FI-SW-01')]"")).click();
+
+        // Verify Angelfish product detail page
+        $(By.xpath(""//h2[contains(text(),'Angelfish')]"")).shouldBe(visible);
+        $(By.xpath(""//h2[contains(text(),'Angelfish')]"")).shouldHave(text(""Angelfish""));
+
+        // Verify item links are present
+        $(By.xpath(""//a[contains(@href,'itemId=EST-1')]"")).shouldBe(visible);
+        $(By.xpath(""//a[contains(@href,'itemId=EST-2')]"")).shouldBe(visible);
+
+        // Verify title contains Angelfish
+        title().contains(""Angelfish"");
+    }
+}
+",1706,50,13,1,3,0,0,0,14,7,6,21,7,1,Passed,1,Success,
+JPetStore6_JPS-WF01_P3_DeepSeek_V03,JPetStore 6,JPS-WF01,DeepSeek,P3,3,generated_tests/JPetStore6/JPS-WF01/P3/DeepSeek/JPS_WF01_P3_DeepSeek_V03_IT.java,"package org.mybatis.jpetstore;
+
+import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.Selenide;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
+import org.openqa.selenium.By;
+
+import java.util.concurrent.TimeUnit;
+
+import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.title;
+import static org.assertj.core.api.Assertions.assertThat;
+
+public class JPS_WF01_P3_DeepSeek_V03_IT {
+
+    @BeforeAll
+    public static void setUp() {
+        Configuration.browser = ""chrome"";
+        Configuration.headless = true;
+        Configuration.timeout = TimeUnit.SECONDS.toMillis(10);
+        Configuration.baseUrl = ""htt<LOCAL_PATH>"";
+    }
+
+    @Test
+    public void testWelcomeToMainCatalogWorkflow() {
+        // Open welcome page
+        Selenide.open(""/"");
+        
+        // Verify welcome page title
+        assertThat(title()).isEqualTo(""JPetStore Demo"");
+        
+        // Verify welcome page content
+        $(By.cssSelector(""#Content h2"")).shouldHave(text(""Welcome to JPetStore 6""));
+        
+        // Navigate to store
+        $(By.linkText(""Enter the Store"")).click();
+        
+        // Verify navigation to main catalog page
+        $(By.id(""WelcomeContent"")).shouldBe(com.codeborne.selenide.Condition.empty);
+        
+        // Verify main catalog page shows all categories via sidebar
+        $(By.cssSelector(""#SidebarContent a:nth-of-type(1)"")).click();
+        $(By.cssSelector(""#Catalog h2"")).shouldHave(text(""Fish""));
+        $(By.linkText(""Return to Main Menu"")).click();
+        
+        $(By.cssSelector(""#SidebarContent a:nth-of-type(2)"")).click();
+        $(By.cssSelector(""#Catalog h2"")).shouldHave(text(""Dogs""));
+        $(By.linkText(""Return to Main Menu"")).click();
+        
+        $(By.cssSelector(""#SidebarContent a:nth-of-type(3)"")).click();
+        $(By.cssSelector(""#Catalog h2"")).shouldHave(text(""Cats""));
+        $(By.linkText(""Return to Main Menu"")).click();
+        
+        $(By.cssSelector(""#SidebarContent a:nth-of-type(4)"")).click();
+        $(By.cssSelector(""#Catalog h2"")).shouldHave(text(""Reptiles""));
+        $(By.linkText(""Return to Main Menu"")).click();
+        
+        $(By.cssSelector(""#SidebarContent a:nth-of-type(5)"")).click();
+        $(By.cssSelector(""#Catalog h2"")).shouldHave(text(""Birds""));
+    }
+}
+",2413,64,11,1,10,0,0,12,0,28,17,34,17,5,Passed,1,Success,
+JPetStore6_JPS-WF02_P3_DeepSeek_V03,JPetStore 6,JPS-WF02,DeepSeek,P3,3,generated_tests/JPetStore6/JPS-WF02/P3/DeepSeek/JPS_WF02_P3_DeepSeek_V03_IT.java,"package org.mybatis.jpetstore;
+
+import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.Selenide;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
+import org.openqa.selenium.By;
+
+import java.util.concurrent.TimeUnit;
+
+import static com.codeborne.selenide.Condition.empty;
+import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Selenide.*;
+import static org.assertj.core.api.Assertions.assertThat;
+
+public class JPS_WF02_P3_DeepSeek_V03_IT {
+
+    @BeforeAll
+    public static void setUp() {
+        Configuration.browser = ""chrome"";
+        Configuration.headless = true;
+        Configuration.timeout = TimeUnit.SECONDS.toMillis(10);
+        Configuration.baseUrl = ""htt<LOCAL_PATH>"";
+    }
+
+    @Test
+    public void testFishCategoryProductListing() {
+        // Step 1: Open welcome page
+        open(""/"");
+        
+        // Verify welcome page loaded
+        assertThat(title()).isEqualTo(""JPetStore Demo"");
+        $(By.cssSelector(""#Content h2"")).shouldHave(text(""Welcome to JPetStore 6""));
+        
+        // Step 2: Navigate to store
+        $(By.linkText(""Enter the Store"")).click();
+        
+        // Verify store page loaded
+        $(By.id(""WelcomeContent"")).shouldBe(empty);
+        
+        // Step 3: Click Fish category
+        $(By.cssSelector(""#SidebarContent a:nth-of-type(1)"")).click();
+        
+        // Step 4: Verify Fish category page
+        $(By.cssSelector(""#Catalog h2"")).shouldHave(text(""Fish""));
+        
+        // Step 5: Verify required fish products are displayed
+        $(By.cssSelector(""#Catalog"")).shouldHave(text(""Angelfish""));
+        $(By.cssSelector(""#Catalog"")).shouldHave(text(""Tiger Shark""));
+        $(By.cssSelector(""#Catalog"")).shouldHave(text(""Koi""));
+        $(By.cssSelector(""#Catalog"")).shouldHave(text(""Goldfish""));
+        
+        // Step 6: Return to main menu
+        $(By.linkText(""Return to Main Menu"")).click();
+    }
+}
+",1982,57,11,1,3,0,0,8,0,17,14,24,10,5,Passed,1,Success,
+JPetStore6_JPS-WF03_P3_DeepSeek_V03,JPetStore 6,JPS-WF03,DeepSeek,P3,3,generated_tests/JPetStore6/JPS-WF03/P3/DeepSeek/JPS_WF03_P3_DeepSeek_V03_IT.java,"package org.mybatis.jpetstore;
+
+import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.Selenide;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
+import org.openqa.selenium.By;
+
+import java.util.concurrent.TimeUnit;
+
+import static com.codeborne.selenide.Condition.empty;
+import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.title;
+import static org.assertj.core.api.Assertions.assertThat;
+
+public class JPS_WF03_P3_DeepSeek_V03_IT {
+
+    @BeforeAll
+    public static void setUp() {
+        Configuration.browser = ""CHROME"";
+        Configuration.headless = true;
+        Configuration.timeout = TimeUnit.SECONDS.toMillis(10);
+        Configuration.baseUrl = ""htt<LOCAL_PATH>"";
+    }
+
+    @Test
+    public void testDogsCategoryProductListing() {
+        // Step 1: Open welcome page and verify
+        Selenide.open(""/"");
+        assertThat(title()).isEqualTo(""JPetStore Demo"");
+        $(By.cssSelector(""#Content h2"")).shouldHave(text(""Welcome to JPetStore 6""));
+
+        // Step 2: Navigate to store
+        $(By.linkText(""Enter the Store"")).click();
+        $(By.id(""WelcomeContent"")).shouldBe(empty);
+
+        // Step 3: Click Dogs category in sidebar
+        $(By.cssSelector(""#SidebarContent a:nth-of-type(2)"")).click();
+
+        // Step 4: Verify Dogs category page heading
+        $(By.cssSelector(""#Catalog h2"")).shouldHave(text(""Dogs""));
+
+        // Step 5: Verify all required dog breeds are present
+        $(By.cssSelector(""#Catalog"")).shouldHave(text(""Bulldog""));
+        $(By.cssSelector(""#Catalog"")).shouldHave(text(""Poodle""));
+        $(By.cssSelector(""#Catalog"")).shouldHave(text(""Dalmation""));
+        $(By.cssSelector(""#Catalog"")).shouldHave(text(""Golden Retriever""));
+        $(By.cssSelector(""#Catalog"")).shouldHave(text(""Labrador Retriever""));
+        $(By.cssSelector(""#Catalog"")).shouldHave(text(""Chihuahua""));
+
+        // Step 6: Return to main menu as cleanup
+        $(By.linkText(""Return to Main Menu"")).click();
+    }
+}
+",2106,56,13,1,3,0,0,10,0,21,18,31,12,5,Passed,1,Success,
+JPetStore6_JPS-WF04_P3_DeepSeek_V03,JPetStore 6,JPS-WF04,DeepSeek,P3,3,generated_tests/JPetStore6/JPS-WF04/P3/DeepSeek/JPS_WF04_P3_DeepSeek_V03_IT.java,"package org.mybatis.jpetstore;
+
+import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.Selenide;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
+import org.openqa.selenium.By;
+
+import java.util.concurrent.TimeUnit;
+
+import static com.codeborne.selenide.Condition.empty;
+import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.Selenide.title;
+import static org.assertj.core.api.Assertions.assertThat;
+
+public class JPS_WF04_P3_DeepSeek_V03_IT {
+
+    @BeforeAll
+    public static void setUp() {
+        Configuration.browser = ""chrome"";
+        Configuration.headless = true;
+        Configuration.timeout = TimeUnit.SECONDS.toMillis(10);
+        Configuration.baseUrl = ""htt<LOCAL_PATH>"";
+    }
+
+    @Test
+    public void testCatsCategoryProductListing() {
+        // Step 1: Open welcome page
+        open(""/"");
+
+        // Step 2: Verify welcome page loaded
+        assertThat(title()).isEqualTo(""JPetStore Demo"");
+        $(By.cssSelector(""#Content h2"")).shouldHave(text(""Welcome to JPetStore 6""));
+
+        // Step 3: Enter the store
+        $(By.linkText(""Enter the Store"")).click();
+
+        // Step 4: Verify store page loaded
+        $(By.id(""WelcomeContent"")).shouldBe(empty);
+
+        // Step 5: Click Cats category
+        $(By.cssSelector(""#SidebarContent a:nth-of-type(3)"")).click();
+
+        // Step 6: Verify Cats category page
+        $(By.cssSelector(""#Catalog h2"")).shouldHave(text(""Cats""));
+
+        // Step 7: Verify Manx and Persian products are displayed
+        $(By.cssSelector(""#Catalog"")).shouldHave(text(""Manx""));
+        $(By.cssSelector(""#Catalog"")).shouldHave(text(""Persian""));
+    }
+}
+",1813,54,9,1,2,0,0,6,0,12,9,23,7,5,Passed,1,Success,
+JPetStore6_JPS-WF05_P3_DeepSeek_V03,JPetStore 6,JPS-WF05,DeepSeek,P3,3,generated_tests/JPetStore6/JPS-WF05/P3/DeepSeek/JPS_WF05_P3_DeepSeek_V03_IT.java,"package org.mybatis.jpetstore;
+
+import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.Selenide;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
+import org.openqa.selenium.By;
+
+import java.util.concurrent.TimeUnit;
+
+import static com.codeborne.selenide.Condition.empty;
+import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Selenide.*;
+import static org.assertj.core.api.Assertions.assertThat;
+
+public class JPS_WF05_P3_DeepSeek_V03_IT {
+
+    @BeforeAll
+    public static void setUp() {
+        Configuration.browser = ""chrome"";
+        Configuration.headless = true;
+        Configuration.timeout = TimeUnit.SECONDS.toMillis(10);
+        Configuration.baseUrl = ""htt<LOCAL_PATH>"";
+    }
+
+    @Test
+    public void testBirdsCategoryProductListing() {
+        // Open welcome page
+        open(""/"");
+
+        // Verify welcome page
+        assertThat(title()).isEqualTo(""JPetStore Demo"");
+        $(By.cssSelector(""#Content h2"")).shouldHave(text(""Welcome to JPetStore 6""));
+
+        // Navigate to store
+        $(By.linkText(""Enter the Store"")).click();
+
+        // Verify store page
+        $(By.id(""WelcomeContent"")).shouldBe(empty);
+
+        // Click Birds category
+        $(By.cssSelector(""#SidebarContent a:nth-of-type(5)"")).click();
+
+        // Verify Birds category page
+        $(By.cssSelector(""#Catalog h2"")).shouldHave(text(""Birds""));
+
+        // Semantic oracle: verify Amazon Parrot and Finch are displayed
+        $(By.cssSelector(""#Catalog"")).shouldHave(text(""Amazon Parrot""));
+        $(By.cssSelector(""#Catalog"")).shouldHave(text(""Finch""));
+    }
+}
+",1666,52,9,1,2,0,0,6,0,12,9,19,7,5,Passed,1,Success,
+SpringPetClinic_SPC-WF02_P1_OpenAI_V01,Spring PetClinic,SPC-WF02,OpenAI,P1,1,generated_tests/SpringPetClinic/SPC-WF02/P1/OpenAI/SPC_WF02_P1_OpenAI_V01_IT.java,"package org.springframework.samples.petclinic;
+
+import com.codeborne.selenide.Condition;
+import org.junit.jupiter.api.Test;
+
+import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Condition.*;
+
+public class SPC_WF02_P1_OpenAI_V01_IT {
+
+    @Test
+    public void openOwnersSearchPage() {
+        // Open the home page
+        open(""/"");
+
+        // Click on the ""Find Owners"" link
+        $(""a[href='/owners/find']"").click();
+
+        // Verify that the owner search page is displayed
+        $(""h2"").shouldHave(Condition.text(""Find Owners""));
+        $(""input[name='lastName']"").shouldBe(Condition.visible);
+        $(""button[type='submit']"").shouldHave(Condition.text(""Find Owner""));
+    }
+}
+",724,25,3,1,1,0,0,0,0,4,2,11,0,1,Passed,1,Success,
+SpringPetClinic_SPC-WF03_P1_OpenAI_V01,Spring PetClinic,SPC-WF03,OpenAI,P1,1,generated_tests/SpringPetClinic/SPC-WF03/P1/OpenAI/SPC_WF03_P1_OpenAI_V01_IT.java,"package org.springframework.samples.petclinic;
+
+import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.Selenide;
+import org.junit.jupiter.api.Test;
+
+import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Condition.*;
+
+public class SPC_WF03_P1_OpenAI_V01_IT {
+
+    @Test
+    public void testSearchAllOwnersUsingEmptyLastName() {
+        // Open the application
+        open(""/"");
+
+        // Navigate to the Find Owners page
+        $(""a[href='/owners/find']"").click();
+
+        // Leave Last name blank and click Find Owner
+        $(""input[name='lastName']"").setValue("""");
+        $(""button[type='submit']"").click();
+
+        // Verify owners list page is displayed
+        $(""h2"").shouldHave(Condition.text(""Owners""));
+        $(""table"").shouldBe(Condition.visible);
+    }
+}
+",824,29,2,1,2,1,0,0,0,5,1,13,0,1,Passed,1,Success,
+SpringPetClinic_SPC-WF04_P1_OpenAI_V01,Spring PetClinic,SPC-WF04,OpenAI,P1,1,generated_tests/SpringPetClinic/SPC-WF04/P1/OpenAI/SPC_WF04_P1_OpenAI_V01_IT.java,"package org.springframework.samples.petclinic;
+
+import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.Selenide;
+import org.junit.jupiter.api.Test;
+
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.open;
+
+public class SPC_WF04_P1_OpenAI_V01_IT {
+
+    @Test
+    public void searchOwnerByValidLastNameDavis() {
+        // Open the Find Owners page
+        open(""/"");
+
+        // Navigate to the Find Owners section
+        $(""a[href='/owners/find']"").click();
+
+        // Enter 'Davis' in the Last name field
+        $(""#lastName"").setValue(""Davis"");
+
+        // Click the Find Owner button
+        $(""button[type='submit']"").click();
+
+        // Verify that the results contain the last name 'Davis'
+        $(""table"").shouldHave(Condition.text(""Davis""));
+    }
+}
+",825,30,1,1,2,1,0,1,0,4,1,12,0,1,Passed,1,Success,
+SpringPetClinic_SPC-WF27_P1_OpenAI_V01,Spring PetClinic,SPC-WF27,OpenAI,P1,1,generated_tests/SpringPetClinic/SPC-WF27/P1/OpenAI/SPC_WF27_P1_OpenAI_V01_IT.java,"package org.springframework.samples.petclinic;
+
+import com.codeborne.selenide.Selenide;
+import org.junit.jupiter.api.Test;
+
+import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Condition.*;
+
+public class SPC_WF27_P1_OpenAI_V01_IT {
+
+    @Test
+    public void verifyOwnerSearchPageNavigationBackToHome() {
+        // Open the application
+        open(""/"");
+
+        // Navigate to Find Owners page
+        $(""a[href='/owners/find']"").click();
+
+        // Click on Home link
+        $(""a[href='/']"").click();
+
+        // Verify that the home page is displayed
+        $(""h2"").shouldHave(text(""Welcome""));
+    }
+}
+",644,26,1,1,2,0,0,0,0,3,2,9,0,1,Passed,1,Success,
+SpringPetClinic_SPC-WF02_P2_OpenAI_V01,Spring PetClinic,SPC-WF02,OpenAI,P2,1,generated_tests/SpringPetClinic/SPC-WF02/P2/OpenAI/SPC_WF02_P2_OpenAI_V01_IT.java,"package org.springframework.samples.petclinic;
+
+import com.codeborne.selenide.Selenide;
+import org.junit.jupiter.api.Test;
+
+import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Condition.*;
+
+public class SPC_WF02_P2_OpenAI_V01_IT {
+
+    @Test
+    public void openOwnersSearchPage() {
+        // Open the home page
+        Selenide.open(""/"");
+
+        // Click on the ""Find Owners"" link
+        $(""a[href='/owners/find']"").click();
+
+        // Verify that the owner search page is displayed
+        $(""h2"").shouldHave(text(""Find Owners""));
+        $(""input[name='lastName']"").shouldBe(visible);
+        $(""button[type='submit']"").shouldHave(text(""Find Owner""));
+    }
+}
+",702,25,3,1,1,0,0,0,0,4,4,13,0,1,Passed,1,Success,
+SpringPetClinic_SPC-WF03_P2_OpenAI_V01,Spring PetClinic,SPC-WF03,OpenAI,P2,1,generated_tests/SpringPetClinic/SPC-WF03/P2/OpenAI/SPC_WF03_P2_OpenAI_V01_IT.java,"package org.springframework.samples.petclinic;
+
+import com.codeborne.selenide.Selenide;
+import org.junit.jupiter.api.Test;
+
+import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Condition.*;
+
+public class SPC_WF03_P2_OpenAI_V01_IT {
+
+    @Test
+    public void testSearchAllOwnersUsingEmptyLastName() {
+        // Open the home page
+        open(""/"");
+
+        // Navigate to the Find Owners page
+        $(""a[href='/owners/find']"").click();
+
+        // Leave Last name blank and click Find Owner
+        $(""button[type='submit']"").click();
+
+        // Verify that the owners list page is displayed
+        $(""h2"").shouldHave(text(""Owners""));
+
+        // Optionally, verify that there are owner records displayed
+        $(""table"").shouldBe(visible);
+    }
+}
+",790,29,2,1,2,0,0,0,0,4,2,11,0,1,Passed,1,Success,
+SpringPetClinic_SPC-WF04_P2_OpenAI_V01,Spring PetClinic,SPC-WF04,OpenAI,P2,1,generated_tests/SpringPetClinic/SPC-WF04/P2/OpenAI/SPC_WF04_P2_OpenAI_V01_IT.java,"package org.springframework.samples.petclinic;
+
+import com.codeborne.selenide.Selenide;
+import org.junit.jupiter.api.Test;
+
+import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Condition.*;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+public class SPC_WF04_P2_OpenAI_V01_IT {
+
+    @Test
+    public void searchOwnerByValidLastNameDavis() {
+        // Open the application
+        open(""/"");
+
+        // Navigate to Find Owners page
+        $(""a[href='/owners/find']"").click();
+
+        // Enter last name 'Davis' and click Find Owner
+        $(""#lastName"").setValue(""Davis"");
+        $(""button[type='submit']"").click();
+
+        // Verify that the results contain owner details for 'Davis'
+        $(""table"").shouldHave(text(""Davis""));
+        
+        // Optionally, you can assert that the owner details are displayed
+        assertTrue($(""table"").getText().contains(""Davis""), ""Owner details should contain the last name 'Davis'"");
+    }
+}
+",989,31,6,1,2,1,0,1,0,5,4,11,0,5,Passed,1,Success,
+SpringPetClinic_SPC-WF06_P2_OpenAI_V01,Spring PetClinic,SPC-WF06,OpenAI,P2,1,generated_tests/SpringPetClinic/SPC-WF06/P2/OpenAI/SPC_WF06_P2_OpenAI_V01_IT.java,"package org.springframework.samples.petclinic;
+
+import com.codeborne.selenide.Selenide;
+import org.junit.jupiter.api.Test;
+
+import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Condition.*;
+
+public class SPC_WF06_P2_OpenAI_V01_IT {
+
+    @Test
+    public void openAddOwnerForm() {
+        // Open the home page
+        open(""/"");
+
+        // Navigate to Find Owners page
+        $(""a[href='/owners/find']"").click();
+
+        // Click on Add Owner button
+        $(""a[href='/owners/new']"").click();
+
+        // Verify that the New Owner form fields are displayed
+        $(""input[name='firstName']"").shouldBe(visible);
+        $(""input[name='lastName']"").shouldBe(visible);
+        $(""input[name='address']"").shouldBe(visible);
+        $(""input[name='city']"").shouldBe(visible);
+        $(""input[name='telephone']"").shouldBe(visible);
+        $(""button[type='submit']"").shouldHave(text(""Add Owner""));
+    }
+}
+",940,31,6,1,2,0,0,0,0,8,2,19,0,1,Passed,1,Success,
+SpringPetClinic_SPC-WF02_P1_OpenAI_V02,Spring PetClinic,SPC-WF02,OpenAI,P1,2,generated_tests/SpringPetClinic/SPC-WF02/P1/OpenAI/SPC_WF02_P1_OpenAI_V02_IT.java,"package org.springframework.samples.petclinic;
+
+import com.codeborne.selenide.Configuration;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
+
+import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Condition.*;
+
+public class SPC_WF02_P1_OpenAI_V02_IT {
+
+    @BeforeAll
+    static void setUp() {
+        Configuration.baseUrl = ""htt<LOCAL_PATH>"";
+        Configuration.browserSize = ""1400x1000"";
+}
+
+    @Test
+    void openOwnersSearchPage() {
+        // Open home page
+        open(""/"");
+
+        // Click Find Owners
+        $(""a[href='/owners/find']"").click();
+
+        // Verify owner search page is displayed
+        $(""h2"").shouldHave(text(""Find Owners""));
+        $(""input[name='lastName']"").shouldBe(visible);
+        $(""button[type='submit']"").shouldHave(text(""Find Owner""));
+    }
+}
+",854,32,3,1,1,0,0,0,0,4,4,11,0,1,Passed,1,Success,
+SpringPetClinic_SPC-WF04_P1_OpenAI_V02,Spring PetClinic,SPC-WF04,OpenAI,P1,2,generated_tests/SpringPetClinic/SPC-WF04/P1/OpenAI/SPC_WF04_P1_OpenAI_V02_IT.java,"package org.springframework.samples.petclinic;
+
+import com.codeborne.selenide.Condition;
+import org.junit.jupiter.api.Test;
+
+import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Condition.*;
+
+public class SPC_WF04_P1_OpenAI_V02_IT {
+
+    @Test
+    public void searchOwnerByValidLastNameDavis() {
+        // Open the PetClinic application
+        open(""/"");
+
+        // Navigate to the Find Owners page
+        $(""a[href='/owners/find']"").click();
+
+        // Enter last name 'Davis' in the search field
+        $(""#lastName"").setValue(""Davis"");
+
+        // Click the Find Owner button
+        $(""button[type='submit']"").click();
+
+        // Verify that the results contain owner details with last name 'Davis'
+        $(""table tbody"").shouldHave(Condition.text(""Davis""));
+    }
+}
+",813,29,1,1,2,1,0,1,0,4,1,9,0,1,Passed,1,Success,
+SpringPetClinic_SPC-WF04_P3_OpenAI_V02,Spring PetClinic,SPC-WF04,OpenAI,P3,2,generated_tests/SpringPetClinic/SPC-WF04/P3/OpenAI/SPC_WF04_P3_OpenAI_V02_IT.java,"package org.springframework.samples.petclinic;
+
+import com.codeborne.selenide.Condition;
+import org.junit.jupiter.api.Test;
+
+import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Condition.*;
+
+public class SPC_WF04_P3_OpenAI_V02_IT {
+
+    @Test
+    public void searchOwnerByValidLastNameDavis() {
+        // Open the PetClinic application
+        open(""/"");
+
+        // Navigate to the Find Owners page
+        $(""a[href='/owners/find']"").click();
+        
+        // Verify we are on the Find Owners page
+        $(""h2"").shouldHave(Condition.text(""Find Owners""));
+
+        // Enter 'Davis' in the Last name field
+        $(""#lastName"").setValue(""Davis"");
+
+        // Click on the Find Owner button
+        $(""button[type='submit']"").click();
+
+        // Verify that the results contain the owner with last name 'Davis'
+        $(""h2"").shouldHave(Condition.text(""Owners""));
+
+        // Check that the owner details are displayed correctly
+        $(""table tbody"").shouldHave(Condition.text(""Davis""));
+    }
+}
+",1041,35,3,1,2,1,0,1,0,6,3,13,0,1,Passed,1,Success,
+SpringPetClinic_SPC-WF02_P1_OpenAI_V03,Spring PetClinic,SPC-WF02,OpenAI,P1,3,generated_tests/SpringPetClinic/SPC-WF02/P1/OpenAI/SPC_WF02_P1_OpenAI_V03_IT.java,"package org.springframework.samples.petclinic;
+
+import com.codeborne.selenide.Selenide;
+import org.junit.jupiter.api.Test;
+
+import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Condition.*;
+
+public class SPC_WF02_P1_OpenAI_V03_IT {
+
+    @Test
+    public void testOpenOwnersSearchPage() {
+        // Open the home page
+        open(""/"");
+
+        // Click on the ""Find Owners"" link
+        $(""a[href='/owners/find']"").click();
+
+        // Verify that the owner search page is displayed
+        $(""h2"").shouldHave(text(""Find Owners""));
+        $(""input[name='lastName']"").shouldBe(visible);
+        $(""button[type='submit']"").shouldHave(text(""Find Owner""));
+    }
+}
+",697,25,3,1,1,0,0,0,0,4,4,12,0,1,Passed,1,Success,
+SpringPetClinic_SPC-WF04_P1_OpenAI_V03,Spring PetClinic,SPC-WF04,OpenAI,P1,3,generated_tests/SpringPetClinic/SPC-WF04/P1/OpenAI/SPC_WF04_P1_OpenAI_V03_IT.java,"package org.springframework.samples.petclinic;
+
+import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.Selenide;
+import org.junit.jupiter.api.Test;
+
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.open;
+
+public class SPC_WF04_P1_OpenAI_V03_IT {
+
+    @Test
+    public void searchOwnerByLastNameDavis() {
+        // Open the Find Owners page
+        open(""/"");
+
+        // Navigate to the Find Owners section
+        $(""a[href='/owners/find']"").click();
+
+        // Enter the last name 'Davis' in the search field
+        $(""#lastName"").setValue(""Davis"");
+
+        // Click the Find Owner button
+        $(""button[type='submit']"").click();
+
+        // Verify that the results contain an owner with the last name 'Davis'
+        $(""table"").shouldHave(Condition.text(""Davis""));
+    }
+}
+",845,30,1,1,2,1,0,1,0,4,1,12,0,1,Passed,1,Success,
+SpringPetClinic_SPC-WF02_P2_OpenAI_V03,Spring PetClinic,SPC-WF02,OpenAI,P2,3,generated_tests/SpringPetClinic/SPC-WF02/P2/OpenAI/SPC_WF02_P2_OpenAI_V03_IT.java,"package org.springframework.samples.petclinic;
+
+import com.codeborne.selenide.Selenide;
+import org.junit.jupiter.api.Test;
+
+import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Condition.*;
+
+public class SPC_WF02_P2_OpenAI_V03_IT {
+
+    @Test
+    public void openOwnersSearchPage() {
+        // Open the home page
+        open(""/"");
+
+        // Click on the ""Find Owners"" link
+        $(""a[href='/owners/find']"").click();
+
+        // Verify the owner search page is displayed
+        $(""h2"").shouldHave(text(""Find Owners""));
+        $(""input[name='lastName']"").shouldBe(visible);
+        $(""button[type='submit']"").shouldHave(text(""Find Owner""));
+    }
+}
+",688,25,3,1,1,0,0,0,0,4,4,12,0,1,Passed,1,Success,
+SpringPetClinic_SPC-WF03_P2_OpenAI_V03,Spring PetClinic,SPC-WF03,OpenAI,P2,3,generated_tests/SpringPetClinic/SPC-WF03/P2/OpenAI/SPC_WF03_P2_OpenAI_V03_IT.java,"package org.springframework.samples.petclinic;
+
+import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.Selenide;
+import org.junit.jupiter.api.Test;
+
+import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Condition.*;
+
+public class SPC_WF03_P2_OpenAI_V03_IT {
+
+    @Test
+    public void testSearchAllOwnersUsingEmptyLastName() {
+        // Open the PetClinic home page
+        open(""/"");
+
+        // Navigate to the Find Owners page
+        $(""a[href='/owners/find']"").click();
+
+        // Leave the Last name field blank and click Find Owner
+        $(""input[name='lastName']"").setValue("""");
+        $(""button[type='submit']"").click();
+
+        // Verify that the owners list page is displayed
+        $(""h2"").shouldHave(Condition.text(""Owners""));
+
+        // Optionally, verify that the list contains owner records
+        $(""table"").shouldBe(Condition.visible);
+    }
+}
+",919,31,3,1,2,1,0,0,0,5,1,13,0,1,Passed,1,Success,
+SpringPetClinic_SPC-WF04_P2_OpenAI_V03,Spring PetClinic,SPC-WF04,OpenAI,P2,3,generated_tests/SpringPetClinic/SPC-WF04/P2/OpenAI/SPC_WF04_P2_OpenAI_V03_IT.java,"package org.springframework.samples.petclinic;
+
+import com.codeborne.selenide.Selenide;
+import org.junit.jupiter.api.Test;
+
+import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Condition.*;
+
+public class SPC_WF04_P2_OpenAI_V03_IT {
+
+    @Test
+    public void searchOwnerByValidLastNameDavis() {
+        // Open the home page
+        open(""/"");
+
+        // Navigate to the Find Owners page
+        $(""a[href='/owners/find']"").click();
+
+        // Enter the last name ""Davis"" in the search field
+        $(""#lastName"").setValue(""Davis"");
+
+        // Click the Find Owner button
+        $(""button[type='submit']"").click();
+
+        // Verify that the results contain the last name ""Davis""
+        $(""table tbody"").shouldHave(text(""Davis""));
+    }
+}
+",779,29,1,1,2,1,0,1,0,4,2,10,0,1,Passed,1,Success,
+SpringPetClinic_SPC-WF06_P2_OpenAI_V03,Spring PetClinic,SPC-WF06,OpenAI,P2,3,generated_tests/SpringPetClinic/SPC-WF06/P2/OpenAI/SPC_WF06_P2_OpenAI_V03_IT.java,"package org.springframework.samples.petclinic;
+
+import com.codeborne.selenide.Selenide;
+import org.junit.jupiter.api.Test;
+
+import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Condition.*;
+
+public class SPC_WF06_P2_OpenAI_V03_IT {
+
+    @Test
+    public void openAddOwnerForm() {
+        // Open the home page
+        open(""/"");
+
+        // Navigate to Find Owners page
+        $(""a[href='/owners/find']"").click();
+
+        // Click on Add Owner button
+        $(""a[href='/owners/new']"").click();
+
+        // Verify that the New Owner form fields are displayed
+        $(""input[name='firstName']"").shouldBe(visible);
+        $(""input[name='lastName']"").shouldBe(visible);
+        $(""input[name='address']"").shouldBe(visible);
+        $(""input[name='city']"").shouldBe(visible);
+        $(""input[name='telephone']"").shouldBe(visible);
+        $(""button[type='submit']"").shouldHave(text(""Add Owner""));
+    }
+}
+",940,31,6,1,2,0,0,0,0,8,2,19,0,1,Passed,1,Success,
+SpringPetClinic_SPC-WF04_P3_OpenAI_V03,Spring PetClinic,SPC-WF04,OpenAI,P3,3,generated_tests/SpringPetClinic/SPC-WF04/P3/OpenAI/SPC_WF04_P3_OpenAI_V03_IT.java,"package org.springframework.samples.petclinic;
+
+import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.Selenide;
+import org.junit.jupiter.api.Test;
+
+import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Condition.*;
+
+public class SPC_WF04_P3_OpenAI_V03_IT {
+
+    @Test
+    public void searchOwnerByLastNameDavis() {
+        // Open the PetClinic application
+        open(""/"");
+
+        // Navigate to Find Owners page
+        $(""a[href='/owners/find']"").click();
+        $(""h2"").shouldHave(Condition.text(""Find Owners""));
+
+        // Enter last name 'Davis' and click Find Owner
+        $(""#lastName"").setValue(""Davis"");
+        $(""button[type='submit']"").click();
+
+        // Verify that the results contain the last name 'Davis'
+        $(""h2"").shouldHave(Condition.text(""Owners""));
+        $(""table"").shouldHave(Condition.text(""Davis""));
+
+        // Additional validation to ensure the owner details are visible
+        $(""table"").$$(""tr"").find(Condition.text(""Davis"")).shouldBe(Condition.visible);
+    }
+}
+",1058,33,4,1,2,1,0,1,0,8,4,18,0,1,Passed,1,Success,
+SpringPetClinic_SPC-WF02_P1_DeepSeek_V01,Spring PetClinic,SPC-WF02,DeepSeek,P1,1,generated_tests/SpringPetClinic/SPC-WF02/P1/DeepSeek/SPC_WF02_P1_DeepSeek_V01_IT.java,"package org.springframework.samples.petclinic;
+
+import static com.codeborne.selenide.Condition.*;
+import static com.codeborne.selenide.Selenide.*;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.open;
+
+public class SPC_WF02_P1_DeepSeek_V01_IT {
+
+    @BeforeEach
+    void setUp() {
+        open(""/"");
+    }
+
+    @Test
+    void shouldOpenOwnersSearchPage() {
+        // Click on ""Find Owners"" link
+        $(""a[href*='/owners/find']"").click();
+
+        // Verify the owner search page is displayed with Last name field and Find Owner button
+        $(""h2"").shouldHave(text(""Find Owners""));
+        $(""#lastName"").shouldBe(visible);
+        $(""button[type='submit']"").shouldHave(text(""Find Owner"")).shouldBe(visible);
+    }
+}
+",957,32,4,1,1,0,0,1,0,4,4,17,0,1,Passed,1,Success,
+SpringPetClinic_SPC-WF03_P1_DeepSeek_V01,Spring PetClinic,SPC-WF03,DeepSeek,P1,1,generated_tests/SpringPetClinic/SPC-WF03/P1/DeepSeek/SPC_WF03_P1_DeepSeek_V01_IT.java,"package org.springframework.samples.petclinic;
+
+import static com.codeborne.selenide.Condition.*;
+import static com.codeborne.selenide.Selenide.*;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.open;
+
+public class SPC_WF03_P1_DeepSeek_V01_IT {
+
+    @BeforeEach
+    void setUp() {
+        open(""/"");
+    }
+
+    @Test
+    void shouldDisplayOwnersListWhenSearchingWithEmptyLastName() {
+        // Navigate to Find Owners page
+        $(""a[href*='/find']"").click();
+        
+        // Leave Last name field blank and click Find Owner button
+        $(""button[type='submit']"").click();
+        
+        // Verify owners list page is displayed with owner records
+        $(""h2"").shouldHave(text(""Owners""));
+        $(""table"").shouldBe(visible);
+        $(""table tbody tr"").shouldBe(visible);
+    }
+}
+",1030,35,3,1,2,0,0,0,0,5,2,17,0,1,Passed,1,Success,
+SpringPetClinic_SPC-WF04_P1_DeepSeek_V01,Spring PetClinic,SPC-WF04,DeepSeek,P1,1,generated_tests/SpringPetClinic/SPC-WF04/P1/DeepSeek/SPC_WF04_P1_DeepSeek_V01_IT.java,"package org.springframework.samples.petclinic;
+
+import static com.codeborne.selenide.Condition.*;
+import static com.codeborne.selenide.Selenide.*;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.open;
+
+public class SPC_WF04_P1_DeepSeek_V01_IT {
+
+    @BeforeEach
+    void setUp() {
+        open(""/"");
+    }
+
+    @Test
+    void searchOwnerByValidLastNameDavis() {
+        // Navigate to Find Owners page
+        $(""a[href*='/owners/find']"").click();
+
+        // Enter ""Davis"" in the last name field
+        $(""#lastName"").setValue(""Davis"");
+
+        // Click the ""Find Owner"" button
+        $(""button[type='submit']"").click();
+
+        // Verify that the search results contain ""Davis""
+        $(""table.table"").shouldBe(visible);
+        $(""table.table"").shouldHave(text(""Davis""));
+    }
+}
+",1022,37,2,1,2,1,0,1,0,5,2,16,0,1,Passed,1,Success,
+SpringPetClinic_SPC-WF24_P1_DeepSeek_V01,Spring PetClinic,SPC-WF24,DeepSeek,P1,1,generated_tests/SpringPetClinic/SPC-WF24/P1/DeepSeek/SPC_WF24_P1_DeepSeek_V01_IT.java,"package org.springframework.samples.petclinic;
+
+import static com.codeborne.selenide.Condition.*;
+import static com.codeborne.selenide.Selenide.*;
+
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
+
+import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.open;
+
+public class SPC_WF24_P1_DeepSeek_V01_IT {
+
+    @BeforeAll
+    static void setUp() {
+        open(""/"");
+    }
+
+    @Test
+    void openVeterinariansPage() {
+        // Click on the Veterinarians link
+        $(""a[href='/vets.html']"").click();
+
+        // Verify the veterinarians page is displayed with a list/table
+        $(""h2"").shouldHave(text(""Veterinarians""));
+        $(""table"").shouldBe(visible);
+        $(""table tbody tr"").shouldBe(visible);
+        $(""table tbody tr td"").shouldHave(text(""James""));
+    }
+}
+",952,33,4,1,1,0,0,0,0,5,4,18,0,1,Passed,1,Success,
+SpringPetClinic_SPC-WF27_P1_DeepSeek_V01,Spring PetClinic,SPC-WF27,DeepSeek,P1,1,generated_tests/SpringPetClinic/SPC-WF27/P1/DeepSeek/SPC_WF27_P1_DeepSeek_V01_IT.java,"package org.springframework.samples.petclinic;
+
+import static com.codeborne.selenide.Condition.*;
+import static com.codeborne.selenide.Selenide.*;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.open;
+
+public class SPC_WF27_P1_DeepSeek_V01_IT {
+
+    @BeforeEach
+    void setUp() {
+        open(""/"");
+    }
+
+    @Test
+    void verifyOwnerSearchPageNavigationBackToHome() {
+        // Navigate to Find Owners page
+        $(""a[href*='/owners/find']"").click();
+        
+        // Verify we are on the Find Owners page
+        $(""h2"").shouldHave(text(""Find Owners""));
+        
+        // Click Home link
+        $(""a[href='/']"").click();
+        
+        // Verify home page is displayed
+        $(""h2"").shouldHave(text(""Welcome""));
+        $(""img[src*='pets.png']"").shouldBe(visible);
+    }
+}
+",1025,37,3,1,2,0,0,0,0,5,4,17,0,1,Passed,1,Success,
+SpringPetClinic_SPC-WF02_P2_DeepSeek_V01,Spring PetClinic,SPC-WF02,DeepSeek,P2,1,generated_tests/SpringPetClinic/SPC-WF02/P2/DeepSeek/SPC_WF02_P2_DeepSeek_V01_IT.java,"package org.springframework.samples.petclinic;
+
+import static com.codeborne.selenide.Condition.*;
+import static com.codeborne.selenide.Selenide.*;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.open;
+
+public class SPC_WF02_P2_DeepSeek_V01_IT {
+
+    @BeforeEach
+    void setUp() {
+        open(""/"");
+    }
+
+    @Test
+    void shouldNavigateToOwnersSearchPage() {
+        // Click on ""Find Owners"" link in the navigation menu
+        $(""a[href*='/owners/find']"").click();
+
+        // Verify we are on the Find Owners page
+        $(""h2"").shouldHave(text(""Find Owners""));
+        
+        // Verify the Last name search field is present
+        $(""input[name='lastName']"").shouldBe(visible);
+        
+        // Verify the Find Owner button is present
+        $(""button[type='submit']"").shouldHave(text(""Find Owner""));
+    }
+}
+",1059,36,3,1,1,0,0,0,0,4,4,16,0,1,Passed,1,Success,
+SpringPetClinic_SPC-WF03_P2_DeepSeek_V01,Spring PetClinic,SPC-WF03,DeepSeek,P2,1,generated_tests/SpringPetClinic/SPC-WF03/P2/DeepSeek/SPC_WF03_P2_DeepSeek_V01_IT.java,"package org.springframework.samples.petclinic;
+
+import static com.codeborne.selenide.Condition.*;
+import static com.codeborne.selenide.Selenide.*;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.open;
+
+public class SPC_WF03_P2_DeepSeek_V01_IT {
+
+    @BeforeEach
+    void setUp() {
+        open(""/"");
+    }
+
+    @Test
+    void testSearchAllOwnersWithEmptyLastName() {
+        // Navigate to Find Owners page
+        $(""a[href='/owners/find']"").shouldBe(visible).click();
+
+        // Leave Last name field blank and click Find Owner button
+        $(""#lastName"").shouldBe(visible).setValue("""");
+        $(""button[type='submit']"").shouldBe(visible).click();
+
+        // Verify that the owners list page is displayed with owner records
+        $(""h2"").shouldBe(visible).shouldHave(text(""Owners""));
+        $(""table"").shouldBe(visible);
+        $(""table tbody tr"").shouldBe(visible);
+    }
+}
+",1121,36,7,1,2,1,0,1,0,6,2,22,0,1,Passed,1,Success,
+SpringPetClinic_SPC-WF06_P2_DeepSeek_V01,Spring PetClinic,SPC-WF06,DeepSeek,P2,1,generated_tests/SpringPetClinic/SPC-WF06/P2/DeepSeek/SPC_WF06_P2_DeepSeek_V01_IT.java,"package org.springframework.samples.petclinic;
+
+import static com.codeborne.selenide.Condition.*;
+import static com.codeborne.selenide.Selenide.*;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.open;
+
+public class SPC_WF06_P2_DeepSeek_V01_IT {
+
+    @BeforeEach
+    void setUp() {
+        open(""/"");
+    }
+
+    @Test
+    void testOpenAddOwnerForm() {
+        // Navigate to Find Owners page
+        $(""a[href='/owners/find']"").click();
+        
+        // Click Add Owner button
+        $(""a[href='/owners/new']"").click();
+        
+        // Verify New Owner form fields are displayed
+        $(""#add-owner-form"").shouldBe(visible);
+        $(""#firstName"").shouldBe(visible);
+        $(""#lastName"").shouldBe(visible);
+        $(""#address"").shouldBe(visible);
+        $(""#city"").shouldBe(visible);
+        $(""#telephone"").shouldBe(visible);
+        
+        // Verify Add Owner button is present
+        $(""button[type='submit']"").shouldHave(text(""Add Owner""));
+        
+        // Verify form labels
+        $(""label[for='firstName']"").shouldHave(text(""First Name""));
+        $(""label[for='lastName']"").shouldHave(text(""Last Name""));
+        $(""label[for='address']"").shouldHave(text(""Address""));
+        $(""label[for='city']"").shouldHave(text(""City""));
+        $(""label[for='telephone']"").shouldHave(text(""Telephone""));
+    }
+}
+",1564,48,12,1,2,0,0,6,0,14,12,35,0,1,Passed,1,Success,
+SpringPetClinic_SPC-WF24_P2_DeepSeek_V01,Spring PetClinic,SPC-WF24,DeepSeek,P2,1,generated_tests/SpringPetClinic/SPC-WF24/P2/DeepSeek/SPC_WF24_P2_DeepSeek_V01_IT.java,"package org.springframework.samples.petclinic;
+
+import static com.codeborne.selenide.Condition.*;
+import static com.codeborne.selenide.Selenide.*;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.open;
+
+public class SPC_WF24_P2_DeepSeek_V01_IT {
+
+    @BeforeEach
+    void setUp() {
+        open(""/"");
+    }
+
+    @Test
+    void testOpenVeterinariansPage() {
+        // Click on the Veterinarians link in the navigation menu
+        $(""a[href='/vets.html']"").shouldBe(visible).click();
+
+        // Verify the veterinarians page is displayed with a list/table of veterinarians
+        $(""h2"").shouldHave(text(""Veterinarians""));
+        $(""table"").shouldBe(visible);
+        $(""table"").shouldHave(text(""Name""));
+        $(""table"").shouldHave(text(""Specialties""));
+    }
+}
+",1001,33,5,1,1,0,0,0,0,5,6,19,0,1,Passed,1,Success,
+SpringPetClinic_SPC-WF26_P2_DeepSeek_V01,Spring PetClinic,SPC-WF26,DeepSeek,P2,1,generated_tests/SpringPetClinic/SPC-WF26/P2/DeepSeek/SPC_WF26_P2_DeepSeek_V01_IT.java,"package org.springframework.samples.petclinic;
+
+import static com.codeborne.selenide.Condition.*;
+import static com.codeborne.selenide.Selenide.*;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.open;
+
+public class SPC_WF26_P2_DeepSeek_V01_IT {
+
+    @BeforeEach
+    void setUp() {
+        open(""/"");
+    }
+
+    @Test
+    void shouldNavigateToErrorPageAndDisplayErrorMessage() {
+        // Click the Error link in the navigation menu
+        $(""a[href='/oups']"").shouldBe(visible).click();
+
+        // Verify that the error page is displayed with an appropriate message
+        $(""body"").shouldHave(text(""Something happened...""));
+    }
+}
+",872,30,2,1,1,0,0,0,0,2,2,13,0,1,Passed,1,Success,
+SpringPetClinic_SPC-WF02_P3_DeepSeek_V01,Spring PetClinic,SPC-WF02,DeepSeek,P3,1,generated_tests/SpringPetClinic/SPC-WF02/P3/DeepSeek/SPC_WF02_P3_DeepSeek_V01_IT.java,"package org.springframework.samples.petclinic;
+
+import static com.codeborne.selenide.Condition.*;
+import static com.codeborne.selenide.Selenide.*;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Condition.enabled;
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.open;
+
+public class SPC_WF02_P3_DeepSeek_V01_IT {
+
+    @BeforeEach
+    void setUp() {
+        open(""/"");
+    }
+
+    @Test
+    void shouldOpenOwnersSearchPage() {
+        // Click on ""Find Owners"" link in the navigation
+        $(""a[href*='/owners/find']"").shouldBe(visible).click();
+
+        // Verify we are on the Find Owners page by checking the heading
+        $(""h2"").shouldHave(text(""Find Owners""));
+
+        // Verify the Last name search field is present and visible
+        $(""#lastName"").shouldBe(visible);
+
+        // Verify the Find Owner button is present, visible, and enabled
+        $(""button[type='submit']"").shouldBe(visible).shouldBe(enabled);
+        $(""button[type='submit']"").shouldHave(text(""Find Owner""));
+    }
+}
+",1223,38,6,1,1,0,0,1,0,5,4,21,0,1,Passed,1,Success,
+SpringPetClinic_SPC-WF03_P3_DeepSeek_V01,Spring PetClinic,SPC-WF03,DeepSeek,P3,1,generated_tests/SpringPetClinic/SPC-WF03/P3/DeepSeek/SPC_WF03_P3_DeepSeek_V01_IT.java,"package org.springframework.samples.petclinic;
+
+import static com.codeborne.selenide.Condition.*;
+import static com.codeborne.selenide.Selenide.*;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.open;
+
+public class SPC_WF03_P3_DeepSeek_V01_IT {
+
+    @BeforeEach
+    void setUp() {
+        open(""/"");
+    }
+
+    @Test
+    void shouldDisplayOwnersListWhenSearchingWithEmptyLastName() {
+        // Step 1: Navigate to Find Owners page
+        $(""a[href*='/owners/find']"").shouldBe(visible).click();
+        $(""h2"").shouldHave(text(""Find Owners""));
+
+        // Step 2: Leave last name field empty and click Find Owner button
+        $(""#lastName"").shouldBe(visible).setValue("""");
+        $(""button[type='submit']"").shouldBe(visible).click();
+
+        // Step 3: Verify owners list page is displayed with owner records
+        $(""h2"").shouldHave(text(""Owners""));
+        $(""table#owners"").shouldBe(visible);
+        $(""table#owners tbody tr"").shouldBe(visible);
+        $(""table#owners tbody tr td"").shouldHave(text(""George""));
+    }
+}
+",1265,38,8,1,2,1,0,4,0,8,6,25,0,1,Passed,1,Success,
+SpringPetClinic_SPC-WF04_P3_DeepSeek_V01,Spring PetClinic,SPC-WF04,DeepSeek,P3,1,generated_tests/SpringPetClinic/SPC-WF04/P3/DeepSeek/SPC_WF04_P3_DeepSeek_V01_IT.java,"package org.springframework.samples.petclinic;
+
+import static com.codeborne.selenide.Condition.*;
+import static com.codeborne.selenide.Selenide.*;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.open;
+
+public class SPC_WF04_P3_DeepSeek_V01_IT {
+
+    @BeforeEach
+    void setUp() {
+        open(""/"");
+    }
+
+    @Test
+    void searchOwnerByValidLastNameDavis() {
+        // Step 1: Navigate to Find Owners page
+        $(""a[href*='/owners/find']"").shouldBe(visible).click();
+        
+        // Verify we are on the Find Owners page
+        $(""h2"").shouldHave(text(""Find Owners""));
+        
+        // Step 2: Enter ""Davis"" in Last name field
+        $(""#lastName"").shouldBe(visible).setValue(""Davis"");
+        
+        // Step 3: Click Find Owner button
+        $(""button[type='submit']"").shouldBe(visible).click();
+        
+        // Step 4: Verify owner details contain Davis
+        // The result could be either a single owner details page or a list of owners
+        // Check if we are on the owner details page (single result)
+        if ($(""h2"").has(text(""Owner Information""))) {
+            // Single owner result - verify last name is Davis
+            $(""table.table-striped"").shouldBe(visible);
+            $(""td"").shouldHave(text(""Davis""));
+        } else {
+            // Multiple owners result - verify list contains Davis
+            $(""h2"").shouldHave(text(""Owners""));
+            $(""table.table-striped"").shouldBe(visible);
+            // Check that at least one row contains ""Davis""
+            $(""table.table-striped tbody tr"").shouldHave(text(""Davis""));
+        }
+        
+        // Semantic Oracle: Verify the business outcome - Davis is found
+        // This ensures we actually found an owner with last name Davis
+        $(""body"").shouldHave(text(""Davis""));
+    }
+}
+",2026,55,12,1,2,1,0,1,0,11,11,30,0,1,Passed,1,Success,
+SpringPetClinic_SPC-WF02_P1_DeepSeek_V02,Spring PetClinic,SPC-WF02,DeepSeek,P1,2,generated_tests/SpringPetClinic/SPC-WF02/P1/DeepSeek/SPC_WF02_P1_DeepSeek_V02_IT.java,"package org.springframework.samples.petclinic;
+
+import static com.codeborne.selenide.Condition.*;
+import static com.codeborne.selenide.Selenide.*;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.open;
+
+public class SPC_WF02_P1_DeepSeek_V02_IT {
+
+    @BeforeEach
+    void setUp() {
+        open(""/"");
+    }
+
+    @Test
+    void testOpenOwnersSearchPage() {
+        // Click on ""Find Owners"" link
+        $(""a[href*='/owners/find']"").click();
+
+        // Verify the Find Owners page is displayed with last name search field and Find Owner button
+        $(""h2"").shouldHave(text(""Find Owners""));
+        $(""#lastName"").shouldBe(visible);
+        $(""button[type='submit']"").shouldHave(text(""Find Owner"")).shouldBe(visible);
+    }
+}
+",961,32,4,1,1,0,0,1,0,4,4,17,0,1,Passed,1,Success,
+SpringPetClinic_SPC-WF04_P1_DeepSeek_V02,Spring PetClinic,SPC-WF04,DeepSeek,P1,2,generated_tests/SpringPetClinic/SPC-WF04/P1/DeepSeek/SPC_WF04_P1_DeepSeek_V02_IT.java,"package org.springframework.samples.petclinic;
+
+import static com.codeborne.selenide.Condition.*;
+import static com.codeborne.selenide.Selenide.*;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.open;
+
+public class SPC_WF04_P1_DeepSeek_V02_IT {
+
+    @BeforeEach
+    void setUp() {
+        open(""/"");
+    }
+
+    @Test
+    void searchOwnerByValidLastNameDavis() {
+        // Navigate to Find Owners page
+        $(""a[href*='/owners/find']"").click();
+        
+        // Enter ""Davis"" in the last name field
+        $(""#lastName"").setValue(""Davis"");
+        
+        // Click Find Owner button
+        $(""button[type='submit']"").click();
+        
+        // Verify owner details contain ""Davis""
+        $(""table.table"").shouldBe(visible);
+        $(""table.table"").shouldHave(text(""Davis""));
+    }
+}
+",1030,37,2,1,2,1,0,1,0,5,2,16,0,1,Passed,1,Success,
+SpringPetClinic_SPC-WF05_P1_DeepSeek_V02,Spring PetClinic,SPC-WF05,DeepSeek,P1,2,generated_tests/SpringPetClinic/SPC-WF05/P1/DeepSeek/SPC_WF05_P1_DeepSeek_V02_IT.java,"package org.springframework.samples.petclinic;
+
+import static com.codeborne.selenide.Condition.*;
+import static com.codeborne.selenide.Selenide.*;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.open;
+
+public class SPC_WF05_P1_DeepSeek_V02_IT {
+
+    @BeforeEach
+    void setUp() {
+        open(""/"");
+    }
+
+    @Test
+    void searchOwnerByInvalidLastName() {
+        // Navigate to Find Owners page
+        $(""a[href*='/owners/find']"").shouldBe(visible).click();
+
+        // Enter invalid last name
+        $(""#lastName"").shouldBe(visible).setValue(""ZZZUnknown"");
+
+        // Click Find Owner button
+        $(""button[type='submit']"").shouldBe(visible).click();
+
+        // Verify no matching owner result is displayed
+        $(""body"").shouldHave(text(""has not been found""));
+    }
+}
+",1019,36,4,1,2,1,0,1,0,4,2,17,0,1,Passed,1,Success,
+SpringPetClinic_SPC-WF06_P1_DeepSeek_V02,Spring PetClinic,SPC-WF06,DeepSeek,P1,2,generated_tests/SpringPetClinic/SPC-WF06/P1/DeepSeek/SPC_WF06_P1_DeepSeek_V02_IT.java,"package org.springframework.samples.petclinic;
+
+import static com.codeborne.selenide.Condition.*;
+import static com.codeborne.selenide.Selenide.*;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.open;
+
+public class SPC_WF06_P1_DeepSeek_V02_IT {
+
+    @BeforeEach
+    void setUp() {
+        open(""/"");
+    }
+
+    @Test
+    void testOpenAddOwnerForm() {
+        // Step 1: Open Find Owners page
+        $(""a[href*='/owners/find']"").click();
+
+        // Step 2: Click Add Owner button
+        $(""a[href*='/owners/new']"").click();
+
+        // Step 3: Verify New Owner form fields and button
+        $(""#add-owner-form"").shouldBe(visible);
+        $(""#firstName"").shouldBe(visible);
+        $(""#lastName"").shouldBe(visible);
+        $(""#address"").shouldBe(visible);
+        $(""#city"").shouldBe(visible);
+        $(""#telephone"").shouldBe(visible);
+        $(""button[type='submit']"").shouldHave(text(""Add Owner"")).shouldBe(visible);
+    }
+}
+",1167,39,8,1,2,0,0,6,0,9,2,26,0,1,Passed,1,Success,
+SpringPetClinic_SPC-WF27_P1_DeepSeek_V02,Spring PetClinic,SPC-WF27,DeepSeek,P1,2,generated_tests/SpringPetClinic/SPC-WF27/P1/DeepSeek/SPC_WF27_P1_DeepSeek_V02_IT.java,"package org.springframework.samples.petclinic;
+
+import static com.codeborne.selenide.Condition.*;
+import static com.codeborne.selenide.Selenide.*;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.open;
+
+public class SPC_WF27_P1_DeepSeek_V02_IT {
+
+    @BeforeEach
+    void setUp() {
+        open(""/"");
+    }
+
+    @Test
+    void verifyOwnerSearchPageNavigationBackToHome() {
+        // Step 1: Open Find Owners page
+        $(""a[href*='/owners/find']"").click();
+        $(""h2"").shouldHave(text(""Find Owners""));
+
+        // Step 2: Click Home
+        $(""a[href='/']"").click();
+
+        // Step 3: Verify home page is displayed
+        $(""h2"").shouldHave(text(""Welcome""));
+        $(""img[src*='pets.png']"").shouldBe(visible);
+    }
+}
+",963,35,3,1,2,0,0,0,0,5,4,17,0,1,Passed,1,Success,
+SpringPetClinic_SPC-WF28_P1_DeepSeek_V02,Spring PetClinic,SPC-WF28,DeepSeek,P1,2,generated_tests/SpringPetClinic/SPC-WF28/P1/DeepSeek/SPC_WF28_P1_DeepSeek_V02_IT.java,"package org.springframework.samples.petclinic;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Condition.*;
+
+public class SPC_WF28_P1_DeepSeek_V02_IT {
+
+    @BeforeEach
+    void setUp() {
+        open(""/"");
+    }
+
+    @Test
+    void verifyVeterinariansPageNavigationBackToHome() {
+        // Click on ""Veterinarians"" link in the navigation bar
+        $(""a[href='/vets.html']"").click();
+        
+        // Verify that the veterinarians page is displayed
+        $(""h2"").shouldHave(text(""Veterinarians""));
+        
+        // Click on ""Home"" link in the navigation bar
+        $(""a[href='/']"").click();
+        
+        // Verify that the home page is displayed
+        $(""h2"").shouldHave(text(""Welcome""));
+        $(""img[src='/resources/images/pets.png']"").shouldBe(visible);
+    }
+}
+",1010,34,3,1,2,0,0,0,0,5,4,13,0,1,Passed,1,Success,
+SpringPetClinic_SPC-WF02_P2_DeepSeek_V02,Spring PetClinic,SPC-WF02,DeepSeek,P2,2,generated_tests/SpringPetClinic/SPC-WF02/P2/DeepSeek/SPC_WF02_P2_DeepSeek_V02_IT.java,"package org.springframework.samples.petclinic;
+
+import static com.codeborne.selenide.Condition.*;
+import static com.codeborne.selenide.Selenide.*;
+
+import com.codeborne.selenide.Configuration;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
+
+import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.open;
+
+public class SPC_WF02_P2_DeepSeek_V02_IT {
+
+    @BeforeAll
+    static void setUp() {
+        Configuration.baseUrl = ""htt<LOCAL_PATH>"";
+        Configuration.browserSize = ""1400x1000"";
+        Configuration.browser = ""chrome"";
+        Configuration.headless = true;
+    }
+
+    @Test
+    void openOwnersSearchPage() {
+        // Step 1: Open home page
+        open(""/"");
+
+        // Step 2: Click Find Owners link in navigation
+        $(""a[href='/owners/find']"").click();
+
+        // Step 3: Verify owner search page is displayed
+        // Verify the heading
+        $(""h2"").shouldHave(text(""Find Owners""));
+
+        // Verify Last name search field is present
+        $(""input[name='lastName']"").shouldBe(visible);
+
+        // Verify Find Owner button is present
+        $(""button[type='submit']"").shouldHave(text(""Find Owner"")).shouldBe(visible);
+    }
+}
+",1344,44,4,1,1,0,0,0,0,4,4,18,0,1,Passed,1,Success,
+SpringPetClinic_SPC-WF03_P2_DeepSeek_V02,Spring PetClinic,SPC-WF03,DeepSeek,P2,2,generated_tests/SpringPetClinic/SPC-WF03/P2/DeepSeek/SPC_WF03_P2_DeepSeek_V02_IT.java,"package org.springframework.samples.petclinic;
+
+import static com.codeborne.selenide.Condition.*;
+import static com.codeborne.selenide.Selenide.*;
+
+import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.Selenide;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.open;
+
+public class SPC_WF03_P2_DeepSeek_V02_IT {
+
+    @BeforeEach
+    void setUp() {
+        open(""/"");
+    }
+
+    @Test
+    void shouldDisplayOwnersListWhenSearchingWithEmptyLastName() {
+        // Navigate to Find Owners page
+        $(""a[title='find owners']"").shouldBe(visible).click();
+        
+        // Verify we are on the Find Owners page
+        $(""h2"").shouldHave(text(""Find Owners""));
+        
+        // Leave last name field blank and click Find Owner button
+        $(""button[type='submit']"").shouldBe(visible).click();
+        
+        // Verify owners list page is displayed with owner records
+        $(""h2"").shouldHave(text(""Owners""));
+        
+        // Verify that the owners table is visible and contains data
+        $(""table.table-striped"").shouldBe(visible);
+        $(""table.table-striped tbody tr"").shouldBe(visible);
+        
+        // Verify at least one owner record is displayed (e.g., George Franklin)
+        $(""table.table-striped"").shouldHave(text(""George""));
+        $(""table.table-striped"").shouldHave(text(""Franklin""));
+        
+        // Verify the table contains expected columns
+        $(""table.table-striped thead tr"").shouldHave(
+            text(""Name""), 
+            text(""Address""), 
+            text(""City""), 
+            text(""Telephone"")
+        );
+    }
+}
+",1822,54,11,1,2,0,0,0,0,9,12,30,0,1,Passed,1,Success,
+SpringPetClinic_SPC-WF05_P2_DeepSeek_V02,Spring PetClinic,SPC-WF05,DeepSeek,P2,2,generated_tests/SpringPetClinic/SPC-WF05/P2/DeepSeek/SPC_WF05_P2_DeepSeek_V02_IT.java,"package org.springframework.samples.petclinic;
+
+import static com.codeborne.selenide.Condition.*;
+import static com.codeborne.selenide.Selenide.*;
+
+import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.Selenide;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.open;
+
+public class SPC_WF05_P2_DeepSeek_V02_IT {
+
+    @BeforeEach
+    void setUp() {
+        open(""/"");
+    }
+
+    @Test
+    void searchOwnerByInvalidLastName() {
+        // Step 1: Navigate to Find Owners page
+        $(""a[href='/owners/find']"").shouldBe(visible).click();
+        
+        // Step 2: Enter invalid last name
+        $(""#lastName"").shouldBe(visible).setValue(""ZZZUnknown"");
+        
+        // Step 3: Click Find Owner button
+        $(""button[type='submit']"").shouldBe(visible).click();
+        
+        // Step 4: Verify no matching owner result
+        // The application should either show an error message or remain on the search page
+        // with a message indicating no owners found
+        $("".container-fluid"").shouldBe(visible);
+        
+        // Check for either ""has not been found"" message or empty results table
+        boolean hasNotFoundMessage = $(""body"").has(text(""has not been found""));
+        boolean hasEmptyResults = $(""body"").has(text(""No owners found""));
+        boolean hasErrorMessage = $("".alert"").exists() && $("".alert"").has(text(""not found""));
+        
+        // Assert that at least one of these conditions is true
+        assert hasNotFoundMessage || hasEmptyResults || hasErrorMessage : 
+            ""Expected no owner found message, but got: "" + $(""body"").text();
+        
+        // Verify we are still on the find owners page or on an error page
+        // The URL should contain /owners or /oups
+        String currentUrl = Selenide.webdriver().driver().url();
+        assert currentUrl.contains(""/owners"") || currentUrl.contains(""/oups"") : 
+            ""Expected to stay on owners search page or error page, but got: "" + currentUrl;
+    }
+}
+",2213,55,9,1,2,1,0,1,0,9,6,26,1,4,Passed,1,Success,
+SpringPetClinic_SPC-WF25_P2_DeepSeek_V02,Spring PetClinic,SPC-WF25,DeepSeek,P2,2,generated_tests/SpringPetClinic/SPC-WF25/P2/DeepSeek/SPC_WF25_P2_DeepSeek_V02_IT.java,"package org.springframework.samples.petclinic;
+
+import com.codeborne.selenide.CollectionCondition;
+import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.ElementsCollection;
+import com.codeborne.selenide.SelenideElement;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Condition.*;
+
+public class SPC_WF25_P2_DeepSeek_V02_IT {
+
+    @BeforeEach
+    void setUp() {
+        open(""/"");
+    }
+
+    @Test
+    void verifyVeterinarianSpecialtiesAreShown() {
+        // Navigate to Veterinarians page
+        $(""a[href='/vets.html']"").shouldBe(visible).click();
+
+        // Verify the page heading is present
+        $(""h2"").shouldHave(text(""Veterinarians""));
+
+        // Locate the veterinarian table
+        SelenideElement vetTable = $(""table.table.table-striped"");
+        vetTable.shouldBe(visible);
+
+        // Get all rows from the table body
+        ElementsCollection rows = vetTable.$$(""tbody tr"");
+
+        // Verify that there is at least one veterinarian row
+        rows.shouldHave(CollectionCondition.sizeGreaterThan(0));
+
+        // Iterate through each row and verify name and specialty
+        for (SelenideElement row : rows) {
+            // Verify the name column (first column) is not empty
+            SelenideElement nameCell = row.$(""td"", 0);
+            nameCell.shouldBe(visible);
+            String nameText = nameCell.getText().trim();
+            assert !nameText.isEmpty() : ""Veterinarian name should not be empty"";
+
+            // Verify the specialty column (second column) is present
+            SelenideElement specialtyCell = row.$(""td"", 1);
+            specialtyCell.shouldBe(visible);
+
+            // If specialty text is present, verify it's not just whitespace
+            String specialtyText = specialtyCell.getText().trim();
+            if (!specialtyText.isEmpty()) {
+                // Specialty should be a valid specialty name (not just whitespace)
+                assert specialtyText.matches(""[a-zA-Z\\s]+"") : ""Specialty should contain only letters and spaces"";
+            }
+        }
+
+        // Additional verification: check that specific known veterinarians are present
+        // This ensures the page loaded correctly with expected data
+        boolean foundJames = false;
+        boolean foundHelen = false;
+        for (SelenideElement row : rows) {
+            String name = row.$(""td"", 0).getText().trim();
+            if (name.contains(""James"")) {
+                foundJames = true;
+                // James Carter should have ""none"" specialty
+                String specialty = row.$(""td"", 1).getText().trim();
+                assert specialty.isEmpty() || specialty.equals(""none"") : 
+                    ""James Carter should have no specialty"";
+            }
+            if (name.contains(""Helen"")) {
+                foundHelen = true;
+                // Helen Leary should have radiology specialty
+                String specialty = row.$(""td"", 1).getText().trim();
+                assert specialty.contains(""radiology"") || specialty.contains(""Radiology"") : 
+                    ""Helen Leary should have radiology specialty"";
+            }
+        }
+
+        // At least one of the expected veterinarians should be found
+        assert foundJames || foundHelen : 
+            ""Expected at least one known veterinarian to be present in the list"";
+    }
+}
+",3548,87,16,1,1,0,0,0,0,9,11,30,0,6,Passed,1,Success,
+SpringPetClinic_SPC-WF02_P1_DeepSeek_V03,Spring PetClinic,SPC-WF02,DeepSeek,P1,3,generated_tests/SpringPetClinic/SPC-WF02/P1/DeepSeek/SPC_WF02_P1_DeepSeek_V03_IT.java,"package org.springframework.samples.petclinic;
+
+import static com.codeborne.selenide.Condition.*;
+import static com.codeborne.selenide.Selenide.*;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.open;
+
+public class SPC_WF02_P1_DeepSeek_V03_IT {
+
+    @BeforeEach
+    void setUp() {
+        open(""/"");
+    }
+
+    @Test
+    void openOwnersSearchPage() {
+        // Click on ""Find Owners"" link
+        $(""a[href*='/owners/find']"").click();
+
+        // Verify owner search page is displayed with Last name search field and Find Owner button
+        $(""h2"").shouldHave(text(""Find Owners""));
+        $(""#lastName"").shouldBe(visible);
+        $(""button[type='submit']"").shouldHave(text(""Find Owner"")).shouldBe(visible);
+    }
+}
+",954,32,4,1,1,0,0,1,0,4,4,17,0,1,Passed,1,Success,
+SpringPetClinic_SPC-WF04_P1_DeepSeek_V03,Spring PetClinic,SPC-WF04,DeepSeek,P1,3,generated_tests/SpringPetClinic/SPC-WF04/P1/DeepSeek/SPC_WF04_P1_DeepSeek_V03_IT.java,"package org.springframework.samples.petclinic;
+
+import static com.codeborne.selenide.Condition.*;
+import static com.codeborne.selenide.Selenide.*;
+
+import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.SelenideElement;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Condition.enabled;
+
+public class SPC_WF04_P1_DeepSeek_V03_IT {
+
+    @BeforeEach
+    void setUp() {
+        open(""/"");
+    }
+
+    @Test
+    void searchOwnerByValidLastNameDavis() {
+        // Navigate to Find Owners page
+        $(""a[href*='/owners/find']"").shouldBe(visible).click();
+
+        // Enter ""Davis"" in the Last name field
+        SelenideElement lastNameField = $(""#lastName"");
+        lastNameField.shouldBe(visible, enabled).setValue(""Davis"");
+
+        // Click Find Owner button
+        $(""button[type='submit']"").shouldBe(visible, enabled).click();
+
+        // Verify the results contain ""Davis""
+        $(""table.table.table-striped"").shouldBe(visible);
+        $(""table.table.table-striped"").shouldHave(text(""Davis""));
+    }
+}
+",1303,41,5,1,2,1,0,1,0,5,2,24,0,1,Passed,1,Success,
+SpringPetClinic_SPC-WF24_P1_DeepSeek_V03,Spring PetClinic,SPC-WF24,DeepSeek,P1,3,generated_tests/SpringPetClinic/SPC-WF24/P1/DeepSeek/SPC_WF24_P1_DeepSeek_V03_IT.java,"package org.springframework.samples.petclinic;
+
+import static com.codeborne.selenide.Condition.*;
+import static com.codeborne.selenide.Selenide.*;
+
+import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.Selenide;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.open;
+
+public class SPC_WF24_P1_DeepSeek_V03_IT {
+
+    @BeforeEach
+    void setUp() {
+        open(""/"");
+    }
+
+    @Test
+    void shouldOpenVeterinariansPageAndDisplayList() {
+        // Click on ""Veterinarians"" link
+        $(""a[href*='/vets']"").shouldBe(visible).click();
+
+        // Verify the veterinarians page is displayed with the expected title
+        $(""h2"").shouldHave(text(""Veterinarians""));
+
+        // Verify the table of veterinarians is present and contains data
+        $(""table"").shouldBe(visible);
+        $(""table tbody tr"").shouldBe(visible);
+
+        // Verify at least one veterinarian is listed with their name and specialty
+        $(""table tbody tr"").shouldHave(text(""James Carter""));
+        $(""table tbody tr"").shouldHave(text(""none""));
+
+        // Verify the table structure: header row with Name and Specialties columns
+        $(""table thead tr"").shouldHave(text(""Name""));
+        $(""table thead tr"").shouldHave(text(""Specialties""));
+
+        // Additional verification that the page is fully loaded
+        $(""body"").shouldHave(text(""Veterinarians""));
+    }
+}
+",1603,47,10,1,1,0,0,0,0,9,12,30,0,1,Passed,1,Success,
+SpringPetClinic_SPC-WF02_P2_DeepSeek_V03,Spring PetClinic,SPC-WF02,DeepSeek,P2,3,generated_tests/SpringPetClinic/SPC-WF02/P2/DeepSeek/SPC_WF02_P2_DeepSeek_V03_IT.java,"package org.springframework.samples.petclinic;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Condition.*;
+
+public class SPC_WF02_P2_DeepSeek_V03_IT {
+
+    @BeforeEach
+    void setUp() {
+        open(""/"");
+    }
+
+    @Test
+    void openOwnersSearchPage() {
+        // Click on ""Find Owners"" link in the navigation menu
+        $(""a[href*='/owners/find']"").shouldBe(visible).click();
+
+        // Verify that the Find Owners page is displayed with Last name field and Find Owner button
+        $(""h2"").shouldHave(text(""Find Owners""));
+        $(""#lastName"").shouldBe(visible);
+        $(""button[type='submit']"").shouldHave(text(""Find Owner"")).shouldBe(visible);
+    }
+}
+",894,29,5,1,1,0,0,1,0,4,4,14,0,1,Passed,1,Success,
+SpringPetClinic_SPC-WF04_P2_DeepSeek_V03,Spring PetClinic,SPC-WF04,DeepSeek,P2,3,generated_tests/SpringPetClinic/SPC-WF04/P2/DeepSeek/SPC_WF04_P2_DeepSeek_V03_IT.java,"package org.springframework.samples.petclinic;
+
+import static com.codeborne.selenide.Condition.*;
+import static com.codeborne.selenide.Selenide.*;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.open;
+
+public class SPC_WF04_P2_DeepSeek_V03_IT {
+
+    @BeforeEach
+    void setUp() {
+        open(""/"");
+    }
+
+    @Test
+    void shouldSearchOwnerByLastNameDavis() {
+        // Navigate to Find Owners page
+        $(""a[href='/owners/find']"").click();
+
+        // Enter ""Davis"" in the last name field
+        $(""#lastName"").val(""Davis"");
+
+        // Click the Find Owner button
+        $(""button[type='submit']"").click();
+
+        // Verify that the search results contain ""Davis""
+        $(""table.table"").shouldHave(text(""Davis""));
+    }
+}
+",915,35,1,1,2,0,0,1,0,4,2,13,0,1,Passed,1,Success,
+SpringPetClinic_SPC-WF05_P2_DeepSeek_V03,Spring PetClinic,SPC-WF05,DeepSeek,P2,3,generated_tests/SpringPetClinic/SPC-WF05/P2/DeepSeek/SPC_WF05_P2_DeepSeek_V03_IT.java,"package org.springframework.samples.petclinic;
+
+import static com.codeborne.selenide.Condition.*;
+import static com.codeborne.selenide.Selenide.*;
+
+import com.codeborne.selenide.Condition;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Condition.visible;
+
+public class SPC_WF05_P2_DeepSeek_V03_IT {
+
+    @BeforeEach
+    void setUp() {
+        open(""/"");
+    }
+
+    @Test
+    void testSearchOwnerByInvalidLastName() {
+        // Navigate to Find Owners page
+        $(""a[href='/owners/find']"").click();
+        
+        // Verify we are on the Find Owners page
+        $(""h2"").shouldHave(text(""Find Owners""));
+        
+        // Enter invalid last name
+        $(""#lastName"").setValue(""ZZZUnknown"");
+        
+        // Click Find Owner button
+        $(""button[type='submit']"").click();
+        
+        // Verify that no matching owner result is displayed
+        // The application should show ""has not been found"" message or remain on search page
+        $(""body"").shouldHave(text(""has not been found"").or(text(""No owners found"")));
+        
+        // Alternatively, verify we are still on the search page with the error message
+        $(""h2"").shouldBe(visible);
+        $(""h2"").shouldHave(text(""Find Owners""));
+        
+        // Verify no owner table is displayed
+        $(""table"").shouldNotBe(visible);
+    }
+}
+",1543,48,5,1,2,1,0,1,0,8,7,22,0,1,Passed,1,Success,
+SpringPetClinic_SPC-WF24_P2_DeepSeek_V03,Spring PetClinic,SPC-WF24,DeepSeek,P2,3,generated_tests/SpringPetClinic/SPC-WF24/P2/DeepSeek/SPC_WF24_P2_DeepSeek_V03_IT.java,"package org.springframework.samples.petclinic;
+
+import static com.codeborne.selenide.Condition.*;
+import static com.codeborne.selenide.Selenide.*;
+
+import com.codeborne.selenide.Condition;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Condition.visible;
+
+public class SPC_WF24_P2_DeepSeek_V03_IT {
+
+    @BeforeEach
+    void setUp() {
+        open(""/"");
+    }
+
+    @Test
+    void openVeterinariansPage() {
+        // Click on Veterinarians link in navigation
+        $(""a[href='/vets.html']"").shouldBe(visible).click();
+
+        // Verify veterinarians page is displayed with heading
+        $(""h2"").shouldHave(text(""Veterinarians""));
+
+        // Verify the veterinarians table is present
+        $(""table"").shouldBe(visible);
+
+        // Verify at least one veterinarian is listed with name and specialty
+        $(""table tbody tr"").shouldBe(visible);
+        $(""table tbody tr td"").shouldHave(text(""James Carter""));
+        $(""table tbody tr td:nth-child(2)"").shouldHave(text(""none""));
+    }
+}
+",1217,39,6,1,1,0,0,0,0,6,6,22,0,1,Passed,1,Success,
+SpringPetClinic_SPC-WF27_P2_DeepSeek_V03,Spring PetClinic,SPC-WF27,DeepSeek,P2,3,generated_tests/SpringPetClinic/SPC-WF27/P2/DeepSeek/SPC_WF27_P2_DeepSeek_V03_IT.java,"package org.springframework.samples.petclinic;
+
+import static com.codeborne.selenide.Condition.*;
+import static com.codeborne.selenide.Selenide.*;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.open;
+
+public class SPC_WF27_P2_DeepSeek_V03_IT {
+
+    @BeforeEach
+    void setUp() {
+        open(""/"");
+    }
+
+    @Test
+    void verifyOwnerSearchPageNavigationBackToHome() {
+        // Navigate to Find Owners page
+        $(""a[href*='/owners/find']"").shouldBe(visible).click();
+        
+        // Verify we are on the Find Owners page
+        $(""h2"").shouldHave(text(""Find Owners""));
+        
+        // Click Home link
+        $(""a[href='/']"").shouldBe(visible).click();
+        
+        // Verify home page is displayed
+        $(""h2"").shouldHave(text(""Welcome""));
+        $(""img[src*='pets.png']"").shouldBe(visible);
+    }
+}
+",1061,37,5,1,2,0,0,0,0,5,4,19,0,1,Passed,1,Success,
+SpringPetClinic_SPC-WF28_P2_DeepSeek_V03,Spring PetClinic,SPC-WF28,DeepSeek,P2,3,generated_tests/SpringPetClinic/SPC-WF28/P2/DeepSeek/SPC_WF28_P2_DeepSeek_V03_IT.java,"package org.springframework.samples.petclinic;
+
+import static com.codeborne.selenide.Condition.*;
+import static com.codeborne.selenide.Selenide.*;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.open;
+
+public class SPC_WF28_P2_DeepSeek_V03_IT {
+
+    @BeforeEach
+    void setUp() {
+        open(""/"");
+    }
+
+    @Test
+    void verifyVeterinariansPageNavigationBackToHome() {
+        // Step 1: Navigate to Veterinarians page
+        $(""a[href='/vets.html']"").click();
+        $(""h2"").shouldHave(text(""Veterinarians""));
+
+        // Step 2: Click Home link
+        $(""a[href='/']"").click();
+
+        // Step 3: Verify home page is displayed
+        $(""h2"").shouldHave(text(""Welcome""));
+        $(""img[src*='pets.png']"").shouldBe(visible);
+    }
+}
+",978,35,3,1,2,0,0,0,0,5,4,17,0,1,Passed,1,Success,
+SpringPetClinic_SPC-WF02_P3_DeepSeek_V02,Spring PetClinic,SPC-WF02,DeepSeek,P3,2,generated_tests/SpringPetClinic/SPC-WF02/P3/DeepSeek/SPC_WF02_P3_DeepSeek_V02_IT.java,"package org.springframework.samples.petclinic;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import static com.codeborne.selenide.Condition.*;
+import static com.codeborne.selenide.Selenide.*;
+
+public class SPC_WF02_P3_DeepSeek_V02_IT {
+
+    @BeforeEach
+    void setUp() {
+        open(""/"");
+    }
+
+    @Test
+    void shouldNavigateToFindOwnersPageWithSearchFieldAndButton() {
+        // Step 1: Open home page (already done in setUp)
+        // Verify home page is loaded
+        $(""h2"").shouldHave(text(""Welcome""));
+
+        // Step 2: Click Find Owners link
+        $(""a[href*='/owners/find']"").click();
+
+        // Step 3: Verify owner search page is displayed with expected elements
+        // Verify we are on the Find Owners page
+        $(""h2"").shouldHave(text(""Find Owners""));
+
+        // Verify Last name search field is present
+        $(""#lastName"").shouldBe(visible);
+
+        // Verify Find Owner button is present
+        $(""button[type='submit']"").shouldHave(text(""Find Owner"")).shouldBe(enabled);
+
+        // Semantic oracle: Ensure we are not on a different page
+        $(""h2"").shouldNotHave(text(""Owner Information""));
+        $(""h2"").shouldNotHave(text(""Veterinarians""));
+    }
+}
+",1232,40,7,1,1,0,0,1,0,7,8,15,0,1,Passed,1,Success,
+SpringPetClinic_SPC-WF03_P3_DeepSeek_V02,Spring PetClinic,SPC-WF03,DeepSeek,P3,2,generated_tests/SpringPetClinic/SPC-WF03/P3/DeepSeek/SPC_WF03_P3_DeepSeek_V02_IT.java,"package org.springframework.samples.petclinic;
+
+import static com.codeborne.selenide.Condition.*;
+import static com.codeborne.selenide.Selenide.*;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.open;
+
+public class SPC_WF03_P3_DeepSeek_V02_IT {
+
+    @BeforeEach
+    void setUp() {
+        open(""/"");
+    }
+
+    @Test
+    void searchAllOwnersWithEmptyLastNameShouldDisplayOwnersList() {
+        // Step 1: Navigate to Find Owners page
+        $(""a[href*='/owners/find']"").shouldBe(visible).click();
+        $(""h2"").shouldHave(text(""Find Owners""));
+
+        // Step 2: Leave last name field empty and click Find Owner button
+        $(""#lastName"").shouldBe(visible).setValue("""");
+        $(""button[type='submit']"").shouldBe(visible).click();
+
+        // Step 3: Verify owners list page is displayed with owner records
+        // Semantic oracle: Should display owners list or search results page containing owner records
+        $(""h2"").shouldHave(text(""Owners""));
+        $(""table"").shouldBe(visible);
+        $(""table tbody tr"").shouldBe(visible);
+        $(""table tbody tr td"").shouldHave(text(""George""));
+        $(""table tbody tr td"").shouldHave(text(""Franklin""));
+    }
+}
+",1410,40,9,1,2,1,0,1,0,9,8,27,0,1,Passed,1,Success,
+SpringPetClinic_SPC-WF05_P3_DeepSeek_V02,Spring PetClinic,SPC-WF05,DeepSeek,P3,2,generated_tests/SpringPetClinic/SPC-WF05/P3/DeepSeek/SPC_WF05_P3_DeepSeek_V02_IT.java,"package org.springframework.samples.petclinic;
+
+import static com.codeborne.selenide.Condition.*;
+import static com.codeborne.selenide.Selenide.*;
+
+import com.codeborne.selenide.Condition;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.open;
+
+public class SPC_WF05_P3_DeepSeek_V02_IT {
+
+    @BeforeEach
+    void setUp() {
+        open(""/"");
+    }
+
+    @Test
+    void searchOwnerByInvalidLastNameShouldShowNoResults() {
+        // Step 1: Navigate to Find Owners page
+        $(""a[href*='/owners/find']"").click();
+        $(""h2"").shouldHave(Condition.text(""Find Owners""));
+
+        // Step 2: Enter invalid last name
+        $(""#lastName"").setValue(""ZZZUnknown"");
+
+        // Step 3: Click Find Owner button
+        $(""button[type='submit']"").click();
+
+        // Step 4: Verify no matching owner result
+        // The application should display an error message or remain on the search page
+        // with a message indicating no owners found
+        $(""body"").shouldHave(Condition.text(""has not been found""));
+        
+        // Additional verification that we are still on the correct page
+        $(""h2"").shouldHave(Condition.text(""Find Owners""));
+        
+        // Verify no owner table is displayed (which would indicate results)
+        $("".owner-info"").shouldNot(Condition.exist);
+    }
+}
+",1425,44,4,1,2,1,0,1,0,7,3,18,0,1,Passed,1,Success,
+SpringPetClinic_SPC-WF24_P3_DeepSeek_V02,Spring PetClinic,SPC-WF24,DeepSeek,P3,2,generated_tests/SpringPetClinic/SPC-WF24/P3/DeepSeek/SPC_WF24_P3_DeepSeek_V02_IT.java,"package org.springframework.samples.petclinic;
+
+import static com.codeborne.selenide.Condition.*;
+import static com.codeborne.selenide.Selenide.*;
+
+import com.codeborne.selenide.CollectionCondition;
+import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.ElementsCollection;
+import com.codeborne.selenide.SelenideElement;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.$$;
+import static com.codeborne.selenide.Selenide.open;
+
+public class SPC_WF24_P3_DeepSeek_V02_IT {
+
+    @BeforeEach
+    void setUp() {
+        open(""/"");
+    }
+
+    @Test
+    void testOpenVeterinariansPage() {
+        // Step 1: Verify home page is loaded
+        $(""h2"").shouldHave(text(""Welcome""));
+        
+        // Step 2: Click on Veterinarians link
+        $(""a[href*='vets']"").shouldBe(visible).click();
+        
+        // Step 3: Verify veterinarians page is displayed with correct heading
+        $(""h2"").shouldHave(text(""Veterinarians""));
+        
+        // Step 4: Verify the table of veterinarians is present
+        SelenideElement vetsTable = $(""table.table-striped"");
+        vetsTable.shouldBe(visible);
+        
+        // Step 5: Verify table headers
+        ElementsCollection headers = vetsTable.$$(""thead th"");
+        headers.shouldHave(CollectionCondition.size(2));
+        headers.get(0).shouldHave(text(""Name""));
+        headers.get(1).shouldHave(text(""Specialties""));
+        
+        // Step 6: Verify at least one veterinarian is displayed
+        ElementsCollection vetRows = vetsTable.$$(""tbody tr"");
+        vetRows.shouldHave(CollectionCondition.sizeGreaterThan(0));
+        
+        // Step 7: Verify specific veterinarian data (semantic oracle)
+        // Check that at least one row has both a name and a specialty
+        boolean foundVetWithSpecialty = false;
+        for (SelenideElement row : vetRows) {
+            String name = row.$(""td"", 0).getText();
+            String specialty = row.$(""td"", 1).getText();
+            
+            // Verify name is not empty
+            assert !name.isEmpty() : ""Veterinarian name should not be empty"";
+            
+            // Verify specialty is present (may be empty string for vets without specialties)
+            // But at least one vet should have a specialty
+            if (!specialty.isEmpty()) {
+                foundVetWithSpecialty = true;
+            }
+        }
+        
+        // Verify at least one veterinarian has a specialty
+        assert foundVetWithSpecialty : ""At least one veterinarian should have a specialty"";
+        
+        // Step 8: Verify we are on the correct page (not redirected elsewhere)
+        $(""h2"").shouldHave(text(""Veterinarians""));
+        $(""table.table-striped"").shouldBe(visible);
+    }
+}
+",2944,76,12,1,1,0,0,0,0,10,12,38,0,3,Passed,1,Success,
+SpringPetClinic_SPC-WF02_P3_DeepSeek_V03,Spring PetClinic,SPC-WF02,DeepSeek,P3,3,generated_tests/SpringPetClinic/SPC-WF02/P3/DeepSeek/SPC_WF02_P3_DeepSeek_V03_IT.java,"package org.springframework.samples.petclinic;
+
+import static com.codeborne.selenide.Condition.*;
+import static com.codeborne.selenide.Selenide.*;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Condition.enabled;
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.open;
+
+public class SPC_WF02_P3_DeepSeek_V03_IT {
+
+    @BeforeEach
+    void setUp() {
+        open(""/"");
+    }
+
+    @Test
+    void shouldOpenOwnersSearchPageWithLastNameFieldAndFindOwnerButton() {
+        // Step 1: Open home page is done in setUp()
+
+        // Step 2: Click ""Find Owners"" link in the navigation bar
+        $(""a[href*='/owners/find']"").shouldBe(visible).click();
+
+        // Step 3: Verify the owner search page is displayed with expected elements
+        // Verify the page heading
+        $(""h2"").shouldHave(text(""Find Owners""));
+
+        // Verify the Last name search field is present
+        $(""#lastName"").shouldBe(visible);
+
+        // Verify the Find Owner button is present and enabled
+        $(""button[type='submit']"").shouldHave(text(""Find Owner"")).shouldBe(enabled);
+
+        // Semantic oracle: Ensure we are on the correct page by checking the form action
+        $(""form"").shouldHave(text(""Last name""));
+    }
+}
+",1431,43,6,1,1,0,0,1,0,5,6,21,0,1,Passed,1,Success,
+SpringPetClinic_SPC-WF14_P3_DeepSeek_V03,Spring PetClinic,SPC-WF14,DeepSeek,P3,3,generated_tests/SpringPetClinic/SPC-WF14/P3/DeepSeek/SPC_WF14_P3_DeepSeek_V03_IT.java,"package org.springframework.samples.petclinic;
+
+import static com.codeborne.selenide.Condition.*;
+import static com.codeborne.selenide.Selenide.*;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Condition.enabled;
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.$$;
+import static com.codeborne.selenide.Selenide.open;
+
+public class SPC_WF14_P3_DeepSeek_V03_IT {
+
+    @BeforeEach
+    void setUp() {
+        open(""/"");
+    }
+
+    @Test
+    void testOpenAddNewPetFormForOwner() {
+        // Step 1: Navigate to Find Owners page
+        $(""a[href*='/owners/find']"").click();
+        $(""h2"").shouldHave(text(""Find Owners""));
+
+        // Step 2: Search for an owner (using empty search to get all owners)
+        $(""button[type='submit']"").click();
+
+        // Step 3: Click on the first owner in the results table
+        $$(""table tr td a"").first().click();
+
+        // Step 4: Verify we are on the owner details page
+        $(""h2"").shouldHave(text(""Owner Information""));
+
+        // Step 5: Click ""Add New Pet"" button
+        $(""a[href*='/pets/new']"").click();
+
+        // Step 6: Verify we are on the Add New Pet form page
+        $(""h2"").shouldHave(text(""New Pet""));
+
+        // Step 7: Verify the form fields are present
+        // Name field
+        $(""#name"").shouldBe(visible);
+        $(""label[for='name']"").shouldHave(text(""Name""));
+
+        // Birth Date field
+        $(""#birthDate"").shouldBe(visible);
+        $(""label[for='birthDate']"").shouldHave(text(""Birth Date""));
+
+        // Type dropdown
+        $(""#type"").shouldBe(visible);
+        $(""label[for='type']"").shouldHave(text(""Type""));
+
+        // Add Pet button
+        $(""button[type='submit']"").shouldBe(visible, enabled);
+        $(""button[type='submit']"").shouldHave(text(""Add Pet""));
+
+        // Verify the owner name is displayed on the form (semantic oracle)
+        $(""body"").shouldHave(text(""Owner""));
+        $(""body"").shouldHave(text(""Add Pet""));
+    }
+}
+",2154,66,13,1,4,0,0,3,0,17,18,42,0,1,Passed,1,Success,
+SpringPetClinic_SPC-WF26_P3_DeepSeek_V03,Spring PetClinic,SPC-WF26,DeepSeek,P3,3,generated_tests/SpringPetClinic/SPC-WF26/P3/DeepSeek/SPC_WF26_P3_DeepSeek_V03_IT.java,"package org.springframework.samples.petclinic;
+
+import static com.codeborne.selenide.Condition.*;
+import static com.codeborne.selenide.Selenide.*;
+
+import com.codeborne.selenide.Condition;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.open;
+
+public class SPC_WF26_P3_DeepSeek_V03_IT {
+
+    @BeforeEach
+    void setUp() {
+        open(""/"");
+    }
+
+    @Test
+    void shouldNavigateToErrorPageAndDisplayErrorMessage() {
+        // Step 1: Verify home page is loaded
+        $(""h2"").shouldHave(Condition.text(""Welcome""));
+        
+        // Step 2: Click the Error link in the navigation
+        $(""a[href*='oups']"").shouldBe(Condition.visible).click();
+        
+        // Step 3: Verify we are on the error page
+        // The error page typically shows a ""Something happened..."" message
+        $(""h2"").shouldHave(Condition.text(""Something happened...""));
+        
+        // Step 4: Verify the error page content is displayed correctly
+        // The error page usually contains a stack trace or error details
+        $(""body"").shouldHave(Condition.text(""Error""));
+        
+        // Step 5: Verify the application didn't break - we can still see navigation elements
+        $(""nav"").shouldBe(Condition.visible);
+        
+        // Semantic oracle: Verify the error page is functional and displays error information
+        // The error page should contain either a stack trace or error description
+        boolean hasErrorDetails = $(""pre"").exists() || $(""p"").text().contains(""error"");
+        assert hasErrorDetails : ""Error page should contain error details"";
+    }
+}
+",1701,45,8,1,1,0,0,0,0,7,5,20,0,2,Passed,1,Success,
+HD_OPENAI_P1V1_02187,HelpDeskApp,HD-WF01,OpenAI,P1,1,<USER_HOME>/Desktop/Research1/generated_tests/HelpDeskApp/HD-WF01/P1/OpenAI/HDWF01_P1_OpenAI_V01_IT.java,"package com.research.helpdesk;
+
+import com.codeborne.selenide.Configuration;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
+
+import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.open;
+
+
+public class HDWF01_P1_OpenAI_V01_IT {
+
+    @BeforeAll
+    static void setUp() {
+        Configuration.baseUrl = ""htt<LOCAL_PATH>"";
+        Configuration.browser = ""chrome"";
+        Configuration.browserSize = ""1366x768"";
+        Configuration.timeout = 10000;
+    }
+
+    @Test
+    void openTicketsPageAndVerifyEmptyMessage() {
+        open(""/tickets"");
+
+        $(""h1"").shouldBe(visible).shouldHave(text(""HelpDesk Tickets""));
+        $(""#ticketsPageLink"").shouldBe(visible).shouldHave(text(""Tickets""));
+        $(""#new-ticket-link"").shouldBe(visible).shouldHave(text(""Create New Ticket""));
+        $(""#search-form"").shouldBe(visible);
+        $(""#keyword"").shouldBe(visible);
+        $(""#search-button"").shouldBe(visible);
+        $(""#tickets-table"").shouldBe(visible);
+
+        if ($(""#empty-message"").exists()) {
+            $(""#empty-message"").shouldBe(visible).shouldHave(text(""No tickets found""));
+        }
+    }
+}
+",1293,40,12,1,0,0,0,8,0,9,8,28,0,1,Passed,1,Success,
+HD_OPENAI_P1V1_02188,HelpDeskApp,HD-WF02,OpenAI,P1,1,<USER_HOME>/Desktop/Research1/generated_tests/HelpDeskApp/HD-WF02/P1/OpenAI/HDWF02_P1_OpenAI_V01_IT.java,"package com.research.helpdesk;
+
+import com.codeborne.selenide.Configuration;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
+
+import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.open;
+
+
+public class HDWF02_P1_OpenAI_V01_IT {
+
+    @BeforeAll
+    static void setUp() {
+        Configuration.baseUrl = ""htt<LOCAL_PATH>"";
+        Configuration.browser = ""chrome"";
+        Configuration.browserSize = ""1366x768"";
+        Configuration.timeout = 10000;
+    }
+
+    @Test
+    void createGeneralMediumPriorityTicket() {
+        String unique = String.valueOf(System.currentTimeMillis());
+        String title = ""General Medium Ticket "" + unique;
+        String requester = ""General User "" + unique;
+        String description = ""General Medium issue description "" + unique;
+
+        open(""/tickets/new"");
+
+        $(""h1"").shouldBe(visible).shouldHave(text(""Ticket Form""));
+        $(""#title"").shouldBe(visible).setValue(title);
+        $(""#requester"").shouldBe(visible).setValue(requester);
+        $(""#category"").shouldBe(visible).selectOption(""General"");
+        $(""#priority"").shouldBe(visible).selectOption(""Medium"");
+        $(""#status"").shouldBe(visible).selectOption(""Open"");
+        $(""#description"").shouldBe(visible).setValue(description);
+        $(""#save-ticket-button"").shouldBe(visible).click();
+
+        $(""h1"").shouldBe(visible).shouldHave(text(""HelpDesk Tickets""));
+        $(""#tickets-table"").shouldBe(visible).shouldHave(text(title));
+        $(""#tickets-table"").shouldHave(text(requester));
+        $(""#tickets-table"").shouldHave(text(""General""));
+        $(""#tickets-table"").shouldHave(text(""Medium""));
+        $(""#tickets-table"").shouldHave(text(""Open""));
+    }
+}
+",1862,49,17,1,1,3,0,12,0,14,14,38,0,1,Passed,1,Success,
+HD_OPENAI_P1V1_02189,HelpDeskApp,HD-WF03,OpenAI,P1,1,<USER_HOME>/Desktop/Research1/generated_tests/HelpDeskApp/HD-WF03/P1/OpenAI/HDWF03_P1_OpenAI_V01_IT.java,"package com.research.helpdesk;
+
+import com.codeborne.selenide.Configuration;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
+
+import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.open;
+
+
+public class HDWF03_P1_OpenAI_V01_IT {
+
+    @BeforeAll
+    static void setUp() {
+        Configuration.baseUrl = ""htt<LOCAL_PATH>"";
+        Configuration.browser = ""chrome"";
+        Configuration.browserSize = ""1366x768"";
+        Configuration.timeout = 10000;
+    }
+
+    @Test
+    void createSoftwareHighPriorityTicket() {
+        String unique = String.valueOf(System.currentTimeMillis());
+        String title = ""Software High Ticket "" + unique;
+        String requester = ""Software User "" + unique;
+        String description = ""Software High issue description "" + unique;
+
+        open(""/tickets/new"");
+
+        $(""h1"").shouldBe(visible).shouldHave(text(""Ticket Form""));
+        $(""#title"").shouldBe(visible).setValue(title);
+        $(""#requester"").shouldBe(visible).setValue(requester);
+        $(""#category"").shouldBe(visible).selectOption(""Software"");
+        $(""#priority"").shouldBe(visible).selectOption(""High"");
+        $(""#status"").shouldBe(visible).selectOption(""Open"");
+        $(""#description"").shouldBe(visible).setValue(description);
+        $(""#save-ticket-button"").shouldBe(visible).click();
+
+        $(""h1"").shouldBe(visible).shouldHave(text(""HelpDesk Tickets""));
+        $(""#tickets-table"").shouldBe(visible).shouldHave(text(title));
+        $(""#tickets-table"").shouldHave(text(requester));
+        $(""#tickets-table"").shouldHave(text(""Software""));
+        $(""#tickets-table"").shouldHave(text(""High""));
+        $(""#tickets-table"").shouldHave(text(""Open""));
+    }
+}
+",1858,49,17,1,1,3,0,12,0,14,14,38,0,1,Passed,1,Success,
+HD_OPENAI_P1V1_02190,HelpDeskApp,HD-WF04,OpenAI,P1,1,<USER_HOME>/Desktop/Research1/generated_tests/HelpDeskApp/HD-WF04/P1/OpenAI/HDWF04_P1_OpenAI_V01_IT.java,"package com.research.helpdesk;
+
+import com.codeborne.selenide.Configuration;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
+
+import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.open;
+
+
+public class HDWF04_P1_OpenAI_V01_IT {
+
+    @BeforeAll
+    static void setUp() {
+        Configuration.baseUrl = ""htt<LOCAL_PATH>"";
+        Configuration.browser = ""chrome"";
+        Configuration.browserSize = ""1366x768"";
+        Configuration.timeout = 10000;
+    }
+
+    @Test
+    void createHardwareCriticalTicket() {
+        String unique = String.valueOf(System.currentTimeMillis());
+        String title = ""Hardware Critical Ticket "" + unique;
+        String requester = ""Hardware User "" + unique;
+        String description = ""Hardware Critical issue description "" + unique;
+
+        open(""/tickets/new"");
+
+        $(""h1"").shouldBe(visible).shouldHave(text(""Ticket Form""));
+        $(""#title"").shouldBe(visible).setValue(title);
+        $(""#requester"").shouldBe(visible).setValue(requester);
+        $(""#category"").shouldBe(visible).selectOption(""Hardware"");
+        $(""#priority"").shouldBe(visible).selectOption(""Critical"");
+        $(""#status"").shouldBe(visible).selectOption(""Open"");
+        $(""#description"").shouldBe(visible).setValue(description);
+        $(""#save-ticket-button"").shouldBe(visible).click();
+
+        $(""h1"").shouldBe(visible).shouldHave(text(""HelpDesk Tickets""));
+        $(""#tickets-table"").shouldBe(visible).shouldHave(text(title));
+        $(""#tickets-table"").shouldHave(text(requester));
+        $(""#tickets-table"").shouldHave(text(""Hardware""));
+        $(""#tickets-table"").shouldHave(text(""Critical""));
+        $(""#tickets-table"").shouldHave(text(""Open""));
+    }
+}
+",1870,49,17,1,1,3,0,12,0,14,14,38,0,1,Passed,1,Success,
+HD_OPENAI_P1V1_02191,HelpDeskApp,HD-WF05,OpenAI,P1,1,<USER_HOME>/Desktop/Research1/generated_tests/HelpDeskApp/HD-WF05/P1/OpenAI/HDWF05_P1_OpenAI_V01_IT.java,"package com.research.helpdesk;
+
+import com.codeborne.selenide.Configuration;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
+
+import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.open;
+
+
+public class HDWF05_P1_OpenAI_V01_IT {
+
+    @BeforeAll
+    static void setUp() {
+        Configuration.baseUrl = ""htt<LOCAL_PATH>"";
+        Configuration.browser = ""chrome"";
+        Configuration.browserSize = ""1366x768"";
+        Configuration.timeout = 10000;
+    }
+
+    @Test
+    void createNetworkLowPriorityTicket() {
+        String unique = String.valueOf(System.currentTimeMillis());
+        String title = ""Network Low Ticket "" + unique;
+        String requester = ""Network User "" + unique;
+        String description = ""Network Low issue description "" + unique;
+
+        open(""/tickets/new"");
+
+        $(""h1"").shouldBe(visible).shouldHave(text(""Ticket Form""));
+        $(""#title"").shouldBe(visible).setValue(title);
+        $(""#requester"").shouldBe(visible).setValue(requester);
+        $(""#category"").shouldBe(visible).selectOption(""Network"");
+        $(""#priority"").shouldBe(visible).selectOption(""Low"");
+        $(""#status"").shouldBe(visible).selectOption(""Open"");
+        $(""#description"").shouldBe(visible).setValue(description);
+        $(""#save-ticket-button"").shouldBe(visible).click();
+
+        $(""h1"").shouldBe(visible).shouldHave(text(""HelpDesk Tickets""));
+        $(""#tickets-table"").shouldBe(visible).shouldHave(text(title));
+        $(""#tickets-table"").shouldHave(text(requester));
+        $(""#tickets-table"").shouldHave(text(""Network""));
+        $(""#tickets-table"").shouldHave(text(""Low""));
+        $(""#tickets-table"").shouldHave(text(""Open""));
+    }
+}
+",1847,49,17,1,1,3,0,12,0,14,14,38,0,1,Passed,1,Success,
+HD_OPENAI_P1V1_02192,HelpDeskApp,HD-WF06,OpenAI,P1,1,<USER_HOME>/Desktop/Research1/generated_tests/HelpDeskApp/HD-WF06/P1/OpenAI/HDWF06_P1_OpenAI_V01_IT.java,"package com.research.helpdesk;
+
+import com.codeborne.selenide.Configuration;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
+
+import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.open;
+
+
+public class HDWF06_P1_OpenAI_V01_IT {
+
+    @BeforeAll
+    static void setUp() {
+        Configuration.baseUrl = ""htt<LOCAL_PATH>"";
+        Configuration.browser = ""chrome"";
+        Configuration.browserSize = ""1366x768"";
+        Configuration.timeout = 10000;
+    }
+
+    @Test
+    void createAccountTicketAndVerifyCategory() {
+        String unique = String.valueOf(System.currentTimeMillis());
+        String title = ""Account Medium Ticket "" + unique;
+        String requester = ""Account User "" + unique;
+        String description = ""Account Medium issue description "" + unique;
+
+        open(""/tickets/new"");
+
+        $(""h1"").shouldBe(visible).shouldHave(text(""Ticket Form""));
+        $(""#title"").shouldBe(visible).setValue(title);
+        $(""#requester"").shouldBe(visible).setValue(requester);
+        $(""#category"").shouldBe(visible).selectOption(""Account"");
+        $(""#priority"").shouldBe(visible).selectOption(""Medium"");
+        $(""#status"").shouldBe(visible).selectOption(""Open"");
+        $(""#description"").shouldBe(visible).setValue(description);
+        $(""#save-ticket-button"").shouldBe(visible).click();
+
+        $(""h1"").shouldBe(visible).shouldHave(text(""HelpDesk Tickets""));
+        $(""#tickets-table"").shouldBe(visible).shouldHave(text(title));
+        $(""#tickets-table"").shouldHave(text(requester));
+        $(""#tickets-table"").shouldHave(text(""Account""));
+        $(""#tickets-table"").shouldHave(text(""Medium""));
+        $(""#tickets-table"").shouldHave(text(""Open""));
+    }
+}
+",1865,49,17,1,1,3,0,12,0,14,14,38,0,1,Passed,1,Success,
